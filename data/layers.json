@@ -1,0 +1,148 @@
+{
+  "layers": [
+    {
+      "id": 1,
+      "slug": "energy-grid",
+      "name": "Layer 1: Energy & Grid Infrastructure",
+      "subtitle": "The Physical Power & Thermal Foundation",
+      "tagline": "Without gigawatts of clean baseload power, compute is dead silicon.",
+      "color": "amber",
+      "accent_hex": "#f59e0b",
+      "moat_rating": "Ultra-High",
+      "margin_profile": "Regulated Utilities (10-12% ROE) / High Merchant Spreads ($80-$160/MWh)",
+      "market_size_2030": "$220 Billion",
+      "cagr": "24.5%",
+      "thesis": "AI data centers require 24/7 continuous baseload power that intermittent wind and solar cannot guarantee alone. Nuclear power plants (restarts & SMRs), natural gas turbines with peaker capacity, and utility interconnect queues create multi-year pricing power for energy producers with existing grid connections.",
+      "key_bottlenecks": [
+        "High-voltage substation transformer lead times (30 to 42 months)",
+        "Regional utility interconnection study queues (4 to 7 years in PJM and ERCOT)",
+        "Freshwater rights and thermal water discharge regulations for evaporative cooling"
+      ],
+      "value_capture_drivers": [
+        "Behind-the-meter nuclear Power Purchase Agreements (PPAs) at premium fixed tariffs",
+        "Direct-to-chip liquid cooling (Vertiv, Schneider) replacing legacy air-cooled chillers",
+        "On-site microgrid generation (Bloom Energy fuel cells, gas turbines)"
+      ]
+    },
+    {
+      "id": 2,
+      "slug": "silicon-semis",
+      "name": "Layer 2: Silicon & Semiconductor Fabrication",
+      "subtitle": "The Compute Core & Memory Fabric",
+      "tagline": "Extreme physics barriers create global semiconductor monopolies.",
+      "color": "purple",
+      "accent_hex": "#a855f7",
+      "moat_rating": "Monopolistic",
+      "margin_profile": "60% - 75% Gross Margins (NVIDIA, TSMC, ASML)",
+      "market_size_2030": "$380 Billion",
+      "cagr": "31.0%",
+      "thesis": "The law of silicon economics: every frontier model requires exponential FLOP scaling. Leading-edge foundries (TSMC), extreme ultraviolet lithography (ASML), and high-bandwidth memory (SK Hynix, Micron) enjoy near-insurmountable technological moats that absorb the lion's share of Big Tech CapEx.",
+      "key_bottlenecks": [
+        "Advanced packaging capacity: TSMC CoWoS (Chip-on-Wafer-on-Substrate) wafer allocations",
+        "High Bandwidth Memory (HBM3e / HBM4) stacking yield and wafer supply",
+        "Sub-2nm EUV high-NA scanner deployment cadence"
+      ],
+      "value_capture_drivers": [
+        "NVIDIA full-stack CUDA software moat & NVLink inter-GPU cluster fabric",
+        "Custom ASIC acceleration (Broadcom co-design for Google TPU, AWS Trainium, Meta MTIA)",
+        "Silicon photonics and optical I/O replacing copper traces at high thermal density"
+      ]
+    },
+    {
+      "id": 3,
+      "slug": "cloud-infrastructure",
+      "name": "Layer 3: Cloud Infrastructure & Networking",
+      "subtitle": "The Scale, Neo-Cloud & Optical Cluster Layer",
+      "tagline": "Managing multi-hundred-megawatt AI clusters with zero-packet-drop networking.",
+      "color": "blue",
+      "accent_hex": "#3b82f6",
+      "moat_rating": "Moderate to High",
+      "margin_profile": "35% - 48% Operating Margins (Hyperscalers) / 25% (Neo-Clouds)",
+      "market_size_2030": "$450 Billion",
+      "cagr": "28.5%",
+      "thesis": "Training 100k+ GPU clusters requires ultra-low latency optical networking (800G/1.6T InfiniBand & Ultra Ethernet) and specialized neo-cloud infrastructure. Hyperscalers (Azure, AWS, GCP, OCI) leverage balance sheets to finance gigawatt facilities, while specialized GPU clouds (CoreWeave, Lambda) win on bare-metal provisioning velocity.",
+      "key_bottlenecks": [
+        "Ultra-dense power delivery (100kW+ per server rack)",
+        "800G / 1.6T optical transceivers and DSP supply constraints (Coherent, Lumentum)",
+        "Depreciation cycle mismatch: 3-year GPU obsolescence vs 20-year real estate"
+      ],
+      "value_capture_drivers": [
+        "Multi-cloud GPU virtualization and checkpointing orchestration",
+        "Arista / Cisco Ultra Ethernet Consortium (UEC) standard scaling",
+        "High-density liquid-to-liquid Coolant Distribution Units (CDUs)"
+      ]
+    },
+    {
+      "id": 4,
+      "slug": "foundation-models",
+      "name": "Layer 4: Foundation Models & Frontier Labs",
+      "subtitle": "The Frontier Intelligence Engine",
+      "tagline": "The race for Artificial General Intelligence and reasoning models.",
+      "color": "pink",
+      "accent_hex": "#ec4899",
+      "moat_rating": "Dynamic / High Risk",
+      "margin_profile": "Negative Net Margins (Heavy Training R&D) / Rapidly Scaling API Run-rates",
+      "market_size_2030": "$180 Billion",
+      "cagr": "38.0%",
+      "thesis": "Frontier labs create the core reasoning and multimodal capabilities. The central investment tension is between proprietary frontier models (OpenAI, Anthropic, Google DeepMind) capturing high-value API enterprise budgets vs open-weights models (Meta Llama, Mistral) commoditizing basic text completion.",
+      "key_bottlenecks": [
+        "Pre-training compute cluster capital costs ($1B+ per next-gen model run)",
+        "High-quality human and synthetic reasoning data exhaustion (Post-training RLVR)",
+        "Inference token cost economics and latency for multi-step agentic reasoning"
+      ],
+      "value_capture_drivers": [
+        "Test-time compute scaling (System 2 thinking / RL with verifiable reward functions)",
+        "Enterprise private model weights hosting with zero data-retention guarantees",
+        "Multimodal perception (Vision, Audio, Robotics motor action)"
+      ]
+    },
+    {
+      "id": 5,
+      "slug": "tooling-mlops",
+      "name": "Layer 5: Developer Tooling, Data Infrastructure & MLOps",
+      "subtitle": "The Middleware & Orchestration Ecosystem",
+      "tagline": "The essential plumbing connecting raw models to production applications.",
+      "color": "emerald",
+      "accent_hex": "#10b981",
+      "moat_rating": "Moderate",
+      "margin_profile": "70% - 80% Software Gross Margins",
+      "market_size_2030": "$140 Billion",
+      "cagr": "34.0%",
+      "thesis": "Models are useless in enterprise without context, data pipelines, and orchestration. Vector databases, high-throughput inference serving engines (vLLM, TensorRT-LLM), agent evaluation frameworks, and context caching create sticky developer workflows that survive underlying model replacements.",
+      "key_bottlenecks": [
+        "High developer tool fragmentation and open-source substitution risk",
+        "Vector search scalability and memory footprint at billion-scale embeddings",
+        "Non-deterministic agent debugging and hallucination evaluation"
+      ],
+      "value_capture_drivers": [
+        "Enterprise data warehouse integration (Databricks, Snowflake) securing proprietary data",
+        "High-throughput low-latency inference serving with continuous batching",
+        "Context caching and speculative decoding reducing token costs by 80%"
+      ]
+    },
+    {
+      "id": 6,
+      "slug": "vertical-applications",
+      "name": "Layer 6: Vertical Applications & Agentic AI",
+      "subtitle": "The End-User Value Capture Layer",
+      "tagline": "Replacing white-collar human labor budgets and creating vertical software monopolies.",
+      "color": "indigo",
+      "accent_hex": "#6366f1",
+      "moat_rating": "High (If Workflow Moat Achieved)",
+      "margin_profile": "75% - 85% SaaS Gross Margins / High LTV",
+      "market_size_2030": "$550 Billion",
+      "cagr": "42.0%",
+      "thesis": "This is where 90% of end-user economic value will ultimately be realized. Winning applications don't sell 'AI'—they sell outcomes (automated software engineering, contract litigation, medical diagnostics, enterprise workflow automation). Defensibility comes from proprietary enterprise workflows and system-of-record integration.",
+      "key_bottlenecks": [
+        "High customer acquisition cost (CAC) in crowded commodity wrapper categories",
+        "Model provider platform risk (e.g. OpenAI releasing native features)",
+        "Enterprise security, compliance, and hallucination liability"
+      ],
+      "value_capture_drivers": [
+        "Autonomous AI coding agents (Cursor, Devin) disrupting $500B software labor",
+        "System-of-record workflow moats (Palantir AIP, ServiceNow, Salesforce)",
+        "Outcome-based pricing (charging per task completed rather than per seat)"
+      ]
+    }
+  ]
+}

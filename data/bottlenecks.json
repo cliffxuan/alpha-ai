@@ -1,0 +1,58 @@
+{
+  "bottlenecks": [
+    {
+      "id": "transformer-lead-time",
+      "name": "High-Voltage Substation Transformers",
+      "layer": "Layer 1: Energy & Grid",
+      "lead_time": "36 - 42 Months",
+      "severity": "Critical / Structural",
+      "impact": "Data centers cannot connect new 100MW+ capacity to the grid without years-long advance transformer orders.",
+      "beneficiary_tickers": ["ETN (Eaton)", "SCHN (Schneider)", "GEV (GE Vernova)"]
+    },
+    {
+      "id": "grid-interconnect-queue",
+      "name": "Regional Utility Interconnect Study Queues",
+      "layer": "Layer 1: Energy & Grid",
+      "lead_time": "4.5 - 7.0 Years",
+      "severity": "Extreme Bottleneck",
+      "impact": "PJM, ERCOT, and CAISO transmission interconnect backlogs block greenfield data center builds.",
+      "beneficiary_tickers": ["CEG (Constellation Nuclear)", "VST (Vistra)", "TLN (Talen)"]
+    },
+    {
+      "id": "tsmc-cowos-capacity",
+      "name": "TSMC CoWoS Packaging Allocation",
+      "layer": "Layer 2: Silicon & Semis",
+      "lead_time": "12 - 18 Months",
+      "severity": "High / Easing by 2026",
+      "impact": "Limits total worldwide volume production of NVIDIA B200, H200, and Google TPU v5e/v6e dies.",
+      "beneficiary_tickers": ["TSM (TSMC)", "ASML", "AMKOR"]
+    },
+    {
+      "id": "hbm-stacking-yield",
+      "name": "HBM3e / HBM4 High Bandwidth Memory",
+      "layer": "Layer 2: Silicon & Semis",
+      "lead_time": "9 - 14 Months",
+      "severity": "Critical Quality Gate",
+      "impact": "Extreme 12-layer wafer stacking yields dictate GPU delivery schedules and memory pricing power.",
+      "beneficiary_tickers": ["SK Hynix", "MU (Micron)", "NVDA"]
+    },
+    {
+      "id": "800g-optical-transceivers",
+      "name": "800G / 1.6T Optical Transceivers & DSPs",
+      "layer": "Layer 3: Cloud & Network",
+      "lead_time": "6 - 10 Months",
+      "severity": "Moderate Constraint",
+      "impact": "Dense GPU clusters require 3x-5x more optical transceivers than traditional cloud servers.",
+      "beneficiary_tickers": ["COHR (Coherent)", "LITE (Lumentum)", "ANET (Arista)", "MRVL (Marvell)"]
+    },
+    {
+      "id": "reasoning-rlvr-compute",
+      "name": "Test-Time Reasoning Compute Scaling",
+      "layer": "Layer 4: Foundation Models",
+      "lead_time": "Ongoing Paradigm Shift",
+      "severity": "Economic Transformation",
+      "impact": "Shifts compute spend from one-off pre-training to infinite test-time inference reasoning tokens.",
+      "beneficiary_tickers": ["OpenAI", "Anthropic", "NVDA", "AVGO"]
+    }
+  ]
+}

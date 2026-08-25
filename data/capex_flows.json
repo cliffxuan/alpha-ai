@@ -1,0 +1,41 @@
+{
+  "total_hyperscaler_capex_2025_billions": 265.0,
+  "total_hyperscaler_capex_2026_billions": 330.0,
+  "flows": [
+    {
+      "from": "Big Tech Hyperscalers (MSFT, GOOGL, AMZN, META)",
+      "to": "Layer 2: Silicon & Semis (NVIDIA, TSMC, Broadcom)",
+      "amount_billions": 145.0,
+      "percentage": 44.0,
+      "description": "GPU server boards, high-bandwidth memory (HBM3e/4), and custom ASIC tapeouts."
+    },
+    {
+      "from": "Big Tech Hyperscalers (MSFT, GOOGL, AMZN, META)",
+      "to": "Layer 1: Energy & Grid (Utilities, Nuclear PPAs, Vertiv Cooling)",
+      "amount_billions": 62.0,
+      "percentage": 18.8,
+      "description": "Substation interconnects, long-term nuclear/gas power contracts, and liquid CDUs."
+    },
+    {
+      "from": "Big Tech Hyperscalers (MSFT, GOOGL, AMZN, META)",
+      "to": "Layer 3: Data Center Real Estate & 800G Optics (Arista, Coherent)",
+      "amount_billions": 58.0,
+      "percentage": 17.6,
+      "description": "Hyperscale shell construction, high-voltage transformers, and 800G/1.6T optical transceivers."
+    },
+    {
+      "from": "Big Tech Hyperscalers (MSFT, GOOGL, AMZN, META)",
+      "to": "Layer 4 & 5: Frontier Lab R&D & Middleware (OpenAI, Anthropic, Databricks)",
+      "amount_billions": 40.0,
+      "percentage": 12.1,
+      "description": "Model training partnerships, equity investments, and data lakehouse subscriptions."
+    },
+    {
+      "from": "Enterprise End-Users & Consumers",
+      "to": "Layer 6: Vertical AI Applications & Agents (Palantir, Cursor, ServiceNow)",
+      "amount_billions": 25.0,
+      "percentage": 7.5,
+      "description": "Software labor replacement, autonomous coding seat licenses, and enterprise AI workflows."
+    }
+  ]
+}
