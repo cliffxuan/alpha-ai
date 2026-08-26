@@ -12,14 +12,19 @@ def get_valuation_summary() -> dict[str, Any]:
     public_comps = [c for c in COMPANIES_DATA if c["type"] == "public"]
     private_comps = [c for c in COMPANIES_DATA if c["type"] == "private"]
 
-    # Public Averages
-    avg_pe = sum(c["pe_ratio"] for c in public_comps) / len(public_comps)
-    avg_ev_sales = sum(c["ev_sales"] for c in public_comps) / len(public_comps)
-    avg_growth = sum(c["revenue_growth_yoy"] for c in public_comps) / len(public_comps)
+    # Public Averages (safely filter non-None)
+    pe_list = [c["pe_ratio"] for c in public_comps if c.get("pe_ratio") is not None]
+    ev_sales_list = [c["ev_sales"] for c in public_comps if c.get("ev_sales") is not None]
+    growth_list = [c["revenue_growth_yoy"] for c in public_comps if c.get("revenue_growth_yoy") is not None]
+
+    avg_pe = sum(pe_list) / len(pe_list) if pe_list else 0.0
+    avg_ev_sales = sum(ev_sales_list) / len(ev_sales_list) if ev_sales_list else 0.0
+    avg_growth = sum(growth_list) / len(growth_list) if growth_list else 0.0
 
     # Private Averages
-    avg_arr_mult = sum(c["arr_multiple"] for c in private_comps) / len(private_comps)
-    total_private_val = sum(c["valuation_billions"] for c in private_comps)
+    arr_mult_list = [c["arr_multiple"] for c in private_comps if c.get("arr_multiple") is not None]
+    avg_arr_mult = sum(arr_mult_list) / len(arr_mult_list) if arr_mult_list else 0.0
+    total_private_val = sum(c.get("valuation_billions", 0.0) for c in private_comps)
 
     return {
         "public": {
