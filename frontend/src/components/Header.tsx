@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TabId } from '../types';
-import { Layers, Menu, X, TrendingUp } from 'lucide-react';
+import { Layers, Menu, X, TrendingUp, BookOpen } from 'lucide-react';
 
 interface HeaderProps {
   currentTab: TabId;
@@ -70,8 +70,16 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab }) => {
             ))}
           </div>
 
-          {/* Quick Action Button */}
+          {/* Right Action Buttons */}
           <div className="hidden md:flex items-center space-x-2 shrink-0">
+            <a
+              href="/docs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-mono px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white transition flex items-center gap-1.5"
+            >
+              <BookOpen className="w-3.5 h-3.5 text-indigo-400" /> API Docs
+            </a>
             <button
               onClick={() => handleTabClick('portfolio')}
               className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white shadow-md shadow-indigo-600/30 transition flex items-center gap-1.5"
@@ -113,6 +121,14 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab }) => {
               )}
             </button>
           ))}
+          <a
+            href="/docs"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:bg-slate-800/50 flex items-center gap-2 pt-2 border-t border-slate-800"
+          >
+            <BookOpen className="w-4 h-4 text-indigo-400" /> Open Scalar API Reference
+          </a>
         </div>
       )}
     </nav>

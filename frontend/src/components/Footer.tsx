@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layers, ShieldCheck } from 'lucide-react';
+import { Layers, ShieldCheck, BookOpen } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -20,7 +20,9 @@ export const Footer: React.FC = () => {
             <ShieldCheck className="w-3.5 h-3.5" /> SEC & Fundamental Comps Engine
           </span>
           <span>&bull;</span>
-          <span>Live 6-Layer CapEx Matrix</span>
+          <a href="/docs" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300 flex items-center gap-1">
+            <BookOpen className="w-3.5 h-3.5" /> Scalar API Docs
+          </a>
         </div>
 
         <div className="text-center md:text-right text-[10px] text-slate-500 font-mono">
