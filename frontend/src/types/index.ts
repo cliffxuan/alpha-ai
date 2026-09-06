@@ -31,6 +31,8 @@ export interface Company {
   layer_id: number;
   layer_name: string;
   market_cap_billions?: number;
+  bull_case_market_cap_billions?: number;
+  bull_case_target?: string;
   stock_price?: number;
   pe_ratio?: number;
   ev_sales?: number;

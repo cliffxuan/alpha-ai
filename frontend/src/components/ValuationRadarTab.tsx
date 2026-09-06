@@ -172,6 +172,11 @@ export const ValuationRadarTab: React.FC<ValuationRadarTabProps> = ({ companies 
                   </td>
                   <td className="py-3 font-bold text-white">
                     ${c.market_cap_billions ?? c.valuation_billions}B
+                    {c.bull_case_market_cap_billions && (
+                      <span className="block text-[10px] text-amber-400 font-normal">
+                        Bull: ${c.bull_case_market_cap_billions}B
+                      </span>
+                    )}
                   </td>
                   <td className="py-3 font-bold text-cyan-400">
                     {c.ev_sales ? `${c.ev_sales}x` : c.arr_multiple ? `${c.arr_multiple}x (ARR)` : '—'}

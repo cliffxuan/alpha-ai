@@ -144,6 +144,11 @@ export const LayerExplorerTab: React.FC<LayerExplorerTabProps> = ({
                     <div>
                       <span className="text-sm font-bold text-white">${comp.market_cap_billions}B</span>
                       <span className="text-[10px] text-slate-400 block">Mkt Cap</span>
+                      {comp.bull_case_market_cap_billions && (
+                        <span className="text-[10px] text-amber-400 block font-semibold">
+                          Bull: ${comp.bull_case_market_cap_billions}B
+                        </span>
+                      )}
                     </div>
                   ) : (
                     <div>
