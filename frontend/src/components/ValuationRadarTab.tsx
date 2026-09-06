@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Company } from '../types';
 import { DollarSign, ArrowUpDown, Filter } from 'lucide-react';
 import { ResponsiveContainer, ScatterChart, Scatter, XAxis, YAxis, Tooltip, ZAxis, Cell } from 'recharts';
@@ -167,8 +168,14 @@ export const ValuationRadarTab: React.FC<ValuationRadarTabProps> = ({ companies 
                     <span className="font-bold text-white block">{c.name}</span>
                     <span className="text-[10px] text-slate-400">{c.ticker} &bull; {c.type}</span>
                   </td>
-                  <td className="py-3 font-semibold" style={{ color: layerColors[c.layer_name] || '#94a3b8' }}>
-                    {c.layer_name}
+                  <td className="py-3 font-semibold">
+                    <Link
+                      to={`/layers/${c.layer_id}`}
+                      className="hover:underline transition hover:opacity-80"
+                      style={{ color: layerColors[c.layer_name] || '#94a3b8' }}
+                    >
+                      {c.layer_name}
+                    </Link>
                   </td>
                   <td className="py-3 font-bold text-white">
                     ${c.market_cap_billions ?? c.valuation_billions}B

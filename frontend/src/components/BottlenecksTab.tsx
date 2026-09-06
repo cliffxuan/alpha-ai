@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Bottleneck } from '../types';
 import { AlertOctagon, Clock } from 'lucide-react';
 
@@ -23,7 +24,20 @@ export const BottlenecksTab: React.FC<BottlenecksTabProps> = ({ bottlenecks }) =
           <div key={btn.id} className="glass-card p-6 rounded-3xl border border-slate-800 space-y-4 flex flex-col justify-between">
             <div>
               <div className="flex justify-between items-start mb-2">
-                <span className="text-xs font-mono font-bold text-slate-400">{btn.layer}</span>
+                {(() => {
+                  const match = btn.layer.match(/\bLayer\s*(\d+)\b/i);
+                  const layerNum = match ? match[1] : null;
+                  return layerNum ? (
+                    <Link
+                      to={`/layers/${layerNum}`}
+                      className="text-xs font-mono font-bold text-slate-400 hover:text-indigo-400 hover:underline transition"
+                    >
+                      {btn.layer}
+                    </Link>
+                  ) : (
+                    <span className="text-xs font-mono font-bold text-slate-400">{btn.layer}</span>
+                  );
+                })()}
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 font-bold">
                   {btn.severity}
                 </span>

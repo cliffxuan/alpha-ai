@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Layer, TabId } from '../types';
 import { Zap, Cpu, Server, Brain, Wrench, AppWindow, ArrowRight, ShieldCheck, TrendingUp, DollarSign, Layers as LayersIcon } from 'lucide-react';
 
 interface OverviewTabProps {
   layers: Layer[];
-  onSelectTab: (tab: TabId) => void;
-  onSelectLayer: (layerId: number) => void;
+  onSelectTab?: (tab: TabId) => void;
+  onSelectLayer?: (layerId: number) => void;
 }
 
 export const OverviewTab: React.FC<OverviewTabProps> = ({ layers, onSelectTab, onSelectLayer }) => {
@@ -51,18 +52,20 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({ layers, onSelectTab, o
             Capital in the AI supercycle flows systematically from <strong>base physical constraints (Energy & Silicon)</strong> through <strong>Cloud Scale & Foundation Models</strong> up to <strong>Vertical Software & Agentic Automation</strong>. Identify where durable moats live and where commoditization risk destroys margin.
           </p>
           <div className="flex flex-wrap gap-4 pt-2">
-            <button
-              onClick={() => onSelectTab('portfolio')}
+            <Link
+              to="/portfolio"
+              onClick={() => onSelectTab?.('portfolio')}
               className="px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-500 hover:to-pink-500 text-white font-bold text-sm shadow-lg shadow-indigo-500/25 transition flex items-center gap-2"
             >
               <TrendingUp className="w-4 h-4" /> Simulate 6-Layer Portfolio
-            </button>
-            <button
-              onClick={() => onSelectTab('valuations')}
+            </Link>
+            <Link
+              to="/valuations"
+              onClick={() => onSelectTab?.('valuations')}
               className="px-6 py-3 rounded-xl glass-card hover:bg-slate-800/80 text-slate-200 font-semibold text-sm border border-slate-700 transition flex items-center gap-2"
             >
               <DollarSign className="w-4 h-4 text-emerald-400" /> Valuation Radar & Comps
-            </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -108,13 +111,14 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({ layers, onSelectTab, o
 
         <div className="space-y-3">
           {[...layers].reverse().map((layer) => (
-            <div
+            <Link
               key={layer.id}
+              to={`/layers/${layer.id}`}
               onClick={() => {
-                onSelectLayer(layer.id);
-                onSelectTab('layers');
+                onSelectLayer?.(layer.id);
+                onSelectTab?.('layers');
               }}
-              className={`glass-card p-5 sm:p-6 rounded-2xl border border-slate-800/90 ${getBorderColor(layer.id)} transition cursor-pointer group flex flex-col md:flex-row justify-between md:items-center gap-4`}
+              className={`glass-card p-5 sm:p-6 rounded-2xl border border-slate-800/90 ${getBorderColor(layer.id)} transition cursor-pointer group flex flex-col md:flex-row justify-between md:items-center gap-4 block`}
             >
               <div className="flex items-start space-x-4">
                 <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 shrink-0 group-hover:scale-110 transition-transform">
@@ -143,7 +147,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({ layers, onSelectTab, o
                 </div>
                 <ArrowRight className="w-5 h-5 text-slate-500 group-hover:text-white group-hover:translate-x-1 transition" />
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

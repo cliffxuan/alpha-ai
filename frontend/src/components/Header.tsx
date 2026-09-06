@@ -1,26 +1,27 @@
 import React, { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import { TabId } from '../types';
 import { Layers, Menu, X, TrendingUp, BookOpen } from 'lucide-react';
 
 interface HeaderProps {
-  currentTab: TabId;
-  onSelectTab: (tab: TabId) => void;
+  currentTab?: TabId;
+  onSelectTab?: (tab: TabId) => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab }) => {
+export const Header: React.FC<HeaderProps> = ({ onSelectTab }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navItems: { id: TabId; label: string; badge?: string }[] = [
-    { id: 'overview', label: '6-Layer Cake' },
-    { id: 'layers', label: 'Layer Dossiers' },
-    { id: 'valuations', label: 'Valuation Radar', badge: 'Comps' },
-    { id: 'capex', label: '$330B CapEx Flows' },
-    { id: 'bottlenecks', label: 'Supply Moats' },
-    { id: 'portfolio', label: 'Portfolio Allocator', badge: 'Sim' },
+  const navItems: { id: TabId; path: string; label: string; badge?: string }[] = [
+    { id: 'overview', path: '/', label: '6-Layer Cake' },
+    { id: 'layers', path: '/layers', label: 'Layer Dossiers' },
+    { id: 'valuations', path: '/valuations', label: 'Valuation Radar', badge: 'Comps' },
+    { id: 'capex', path: '/capex', label: '$330B CapEx Flows' },
+    { id: 'bottlenecks', path: '/bottlenecks', label: 'Supply Moats' },
+    { id: 'portfolio', path: '/portfolio', label: 'Portfolio Allocator', badge: 'Sim' },
   ];
 
-  const handleTabClick = (id: TabId) => {
-    onSelectTab(id);
+  const handleNavClick = (id: TabId) => {
+    onSelectTab?.(id);
     setMobileMenuOpen(false);
   };
 
@@ -30,9 +31,10 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab }) => {
         <div className="flex items-center justify-between h-16 w-full gap-4">
           
           {/* Brand Logo */}
-          <div 
+          <Link 
+            to="/"
             className="flex items-center space-x-2.5 cursor-pointer group shrink-0"
-            onClick={() => handleTabClick('overview')}
+            onClick={() => handleNavClick('overview')}
           >
             <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-pink-500 flex items-center justify-center shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
               <Layers className="w-5 h-5 text-white" />
@@ -46,19 +48,23 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab }) => {
               </div>
               <p className="text-[9.5px] text-slate-400 tracking-wider uppercase font-medium">AI Investment Intelligence</p>
             </div>
-          </div>
+          </Link>
 
           {/* Centered Navigation Tabs */}
           <div className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) => (
-              <button
+              <NavLink
                 key={item.id}
-                onClick={() => handleTabClick(item.id)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap ${
-                  currentTab === item.id
-                    ? 'text-indigo-300 bg-indigo-500/15 border border-indigo-500/30 shadow-sm'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
-                }`}
+                to={item.path}
+                end={item.path === '/'}
+                onClick={() => handleNavClick(item.id)}
+                className={({ isActive }) =>
+                  `px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 whitespace-nowrap ${
+                    isActive
+                      ? 'text-indigo-300 bg-indigo-500/15 border border-indigo-500/30 shadow-sm'
+                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+                  }`
+                }
               >
                 {item.label}
                 {item.badge && (
@@ -66,7 +72,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab }) => {
                     {item.badge}
                   </span>
                 )}
-              </button>
+              </NavLink>
             ))}
           </div>
 
@@ -80,12 +86,13 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab }) => {
             >
               <BookOpen className="w-3.5 h-3.5 text-indigo-400" /> API Docs
             </a>
-            <button
-              onClick={() => handleTabClick('portfolio')}
+            <Link
+              to="/portfolio"
+              onClick={() => handleNavClick('portfolio')}
               className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white shadow-md shadow-indigo-600/30 transition flex items-center gap-1.5"
             >
               <TrendingUp className="w-3.5 h-3.5" /> Build Thesis
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -104,14 +111,18 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab }) => {
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-slate-800/80 bg-slate-950/95 px-4 pt-2 pb-4 space-y-1">
           {navItems.map((item) => (
-            <button
+            <NavLink
               key={item.id}
-              onClick={() => handleTabClick(item.id)}
-              className={`block w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition flex items-center justify-between ${
-                currentTab === item.id
-                  ? 'text-indigo-300 bg-indigo-500/15 border border-indigo-500/20'
-                  : 'text-slate-300 hover:bg-slate-800/50'
-              }`}
+              to={item.path}
+              end={item.path === '/'}
+              onClick={() => handleNavClick(item.id)}
+              className={({ isActive }) =>
+                `block w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition flex items-center justify-between ${
+                  isActive
+                    ? 'text-indigo-300 bg-indigo-500/15 border border-indigo-500/20'
+                    : 'text-slate-300 hover:bg-slate-800/50'
+                }`
+              }
             >
               <span>{item.label}</span>
               {item.badge && (
@@ -119,7 +130,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, onSelectTab }) => {
                   {item.badge}
                 </span>
               )}
-            </button>
+            </NavLink>
           ))}
           <a
             href="/docs"

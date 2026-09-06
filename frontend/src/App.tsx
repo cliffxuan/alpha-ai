@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { TabId, Layer, Company, CapExData, Bottleneck } from './types';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { Layer, Company, CapExData, Bottleneck } from './types';
 import { Header } from './components/Header';
 import { OverviewTab } from './components/OverviewTab';
 import { LayerExplorerTab } from './components/LayerExplorerTab';
@@ -7,15 +8,20 @@ import { ValuationRadarTab } from './components/ValuationRadarTab';
 import { CapExFlowTab } from './components/CapExFlowTab';
 import { BottlenecksTab } from './components/BottlenecksTab';
 import { PortfolioBuilderTab } from './components/PortfolioBuilderTab';
+import { NotFound } from './components/NotFound';
 import { Footer } from './components/Footer';
 
 export const App: React.FC = () => {
-  const [currentTab, setCurrentTab] = useState<TabId>('overview');
-  const [selectedLayerId, setSelectedLayerId] = useState<number>(1);
   const [layers, setLayers] = useState<Layer[]>([]);
   const [companies, setCompanies] = useState<Company[]>([]);
   const [capexData, setCapexData] = useState<CapExData | null>(null);
   const [bottlenecks, setBottlenecks] = useState<Bottleneck[]>([]);
+  const location = useLocation();
+
+  // Scroll to top on route navigation
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   useEffect(() => {
     // 1. Fetch 6 layers
@@ -45,39 +51,20 @@ export const App: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#060810] text-slate-100 selection:bg-indigo-500 selection:text-white">
-      <Header currentTab={currentTab} onSelectTab={setCurrentTab} />
+      <Header />
 
       <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
-        {currentTab === 'overview' && (
-          <OverviewTab
-            layers={layers}
-            onSelectTab={setCurrentTab}
-            onSelectLayer={(id) => {
-              setSelectedLayerId(id);
-              setCurrentTab('layers');
-            }}
-          />
-        )}
-        {currentTab === 'layers' && (
-          <LayerExplorerTab
-            layers={layers}
-            companies={companies}
-            selectedLayerId={selectedLayerId}
-            onSelectLayerId={setSelectedLayerId}
-          />
-        )}
-        {currentTab === 'valuations' && (
-          <ValuationRadarTab companies={companies} />
-        )}
-        {currentTab === 'capex' && (
-          <CapExFlowTab capexData={capexData} />
-        )}
-        {currentTab === 'bottlenecks' && (
-          <BottlenecksTab bottlenecks={bottlenecks} />
-        )}
-        {currentTab === 'portfolio' && (
-          <PortfolioBuilderTab />
-        )}
+        <Routes>
+          <Route path="/" element={<OverviewTab layers={layers} />} />
+          <Route path="/overview" element={<Navigate to="/" replace />} />
+          <Route path="/layers" element={<LayerExplorerTab layers={layers} companies={companies} />} />
+          <Route path="/layers/:layerId" element={<LayerExplorerTab layers={layers} companies={companies} />} />
+          <Route path="/valuations" element={<ValuationRadarTab companies={companies} />} />
+          <Route path="/capex" element={<CapExFlowTab capexData={capexData} />} />
+          <Route path="/bottlenecks" element={<BottlenecksTab bottlenecks={bottlenecks} />} />
+          <Route path="/portfolio" element={<PortfolioBuilderTab />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </main>
 
       <Footer />

@@ -1,22 +1,30 @@
 import React from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { Layer, Company } from '../types';
 import { Zap, Cpu, Server, Brain, Wrench, AppWindow, CheckCircle2, AlertTriangle } from 'lucide-react';
 
 interface LayerExplorerTabProps {
   layers: Layer[];
   companies: Company[];
-  selectedLayerId: number;
-  onSelectLayerId: (id: number) => void;
+  selectedLayerId?: number;
+  onSelectLayerId?: (id: number) => void;
 }
 
 export const LayerExplorerTab: React.FC<LayerExplorerTabProps> = ({
   layers,
   companies,
-  selectedLayerId,
+  selectedLayerId = 1,
   onSelectLayerId,
 }) => {
-  const currentLayer = layers.find((l) => l.id === selectedLayerId) || layers[0];
-  const layerCompanies = companies.filter((c) => c.layer_id === selectedLayerId);
+  const { layerId } = useParams<{ layerId?: string }>();
+
+  const parsedId = layerId ? parseInt(layerId, 10) : undefined;
+  const activeLayerId = (parsedId && !isNaN(parsedId) && parsedId >= 1 && parsedId <= 6)
+    ? parsedId
+    : (selectedLayerId || 1);
+
+  const currentLayer = layers.find((l) => l.id === activeLayerId) || layers[0];
+  const layerCompanies = companies.filter((c) => c.layer_id === activeLayerId);
 
   const getLayerIcon = (id: number) => {
     switch (id) {
@@ -30,24 +38,33 @@ export const LayerExplorerTab: React.FC<LayerExplorerTabProps> = ({
     }
   };
 
+  if (!currentLayer) {
+    return (
+      <div className="text-center py-16 text-slate-400">
+        <p>Loading Layer Dossier...</p>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-8 animate-in fade-in duration-300">
       
       {/* Layer Navigation Selector Pills */}
       <div className="flex flex-wrap gap-2">
         {layers.map((l) => (
-          <button
+          <Link
             key={l.id}
-            onClick={() => onSelectLayerId(l.id)}
+            to={`/layers/${l.id}`}
+            onClick={() => onSelectLayerId?.(l.id)}
             className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition flex items-center gap-2 ${
-              selectedLayerId === l.id
+              activeLayerId === l.id
                 ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 border border-indigo-500'
                 : 'glass-card text-slate-400 hover:text-white hover:bg-slate-800/60'
             }`}
           >
             {getLayerIcon(l.id)}
             <span>L{l.id}: {l.name.split(':')[1]?.split('&')[0]}</span>
-          </button>
+          </Link>
         ))}
       </div>
 
