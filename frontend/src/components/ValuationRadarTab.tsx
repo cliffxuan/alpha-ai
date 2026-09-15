@@ -51,11 +51,10 @@ export const ValuationRadarTab: React.FC<ValuationRadarTabProps> = ({ companies 
 
   const layerColors: Record<string, string> = {
     'Energy & Grid': '#f59e0b',
-    'Silicon & Semis': '#a855f7',
-    'Cloud & Network': '#3b82f6',
+    'Chips & Semis': '#a855f7',
+    'Cloud & Infrastructure': '#3b82f6',
     'Foundation Models': '#ec4899',
-    'Tooling & MLOps': '#10b981',
-    'Vertical Apps & Agents': '#6366f1',
+    'Applications & Agents': '#6366f1',
   };
 
   return (
@@ -166,7 +165,7 @@ export const ValuationRadarTab: React.FC<ValuationRadarTabProps> = ({ companies 
                 <tr key={c.id} className="hover:bg-slate-800/30">
                   <td className="py-3">
                     <span className="font-bold text-white block">{c.name}</span>
-                    <span className="text-[10px] text-slate-400">{c.ticker} &bull; {c.type}</span>
+                    <span className="text-[10px] text-slate-400">{c.ticker} • {c.type}</span>
                   </td>
                   <td className="py-3 font-semibold">
                     <Link
