@@ -36,7 +36,6 @@ export const ValuationRadarTab: React.FC<ValuationRadarTabProps> = ({ companies 
     }
   };
 
-  // Scatter chart data for Public Multiples (X: YoY Growth, Y: EV/Sales, Z: Market Cap)
   const scatterData = companies
     .filter((c) => c.type === 'public' && c.revenue_growth_yoy && c.ev_sales)
     .map((c) => ({
@@ -59,7 +58,6 @@ export const ValuationRadarTab: React.FC<ValuationRadarTabProps> = ({ companies 
 
   return (
     <div className="space-y-12 animate-in fade-in duration-300">
-      
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
           <h2 className="text-3xl font-extrabold text-white flex items-center gap-2">
@@ -68,7 +66,6 @@ export const ValuationRadarTab: React.FC<ValuationRadarTabProps> = ({ companies 
           <p className="text-slate-400 text-sm mt-1">Cross-sectional analysis of public equity multiples (EV/Sales, P/E) vs private unicorn funding rounds</p>
         </div>
 
-        {/* Filter Toggle */}
         <div className="flex items-center gap-2 text-xs font-mono">
           <button
             onClick={() => setSelectedType('all')}
@@ -97,7 +94,6 @@ export const ValuationRadarTab: React.FC<ValuationRadarTabProps> = ({ companies 
         </div>
       </div>
 
-      {/* Valuation Scatter Chart (Growth vs Multiple) */}
       <div className="glass-card p-6 rounded-3xl border border-slate-800">
         <div className="flex justify-between items-center mb-4">
           <div>
@@ -127,7 +123,6 @@ export const ValuationRadarTab: React.FC<ValuationRadarTabProps> = ({ companies 
         </div>
       </div>
 
-      {/* Comprehensive Comps Table */}
       <div className="glass-card p-6 rounded-3xl border border-slate-800">
         <div className="flex justify-between items-center mb-4">
           <h3 className="font-bold text-white text-base flex items-center gap-2">
@@ -188,7 +183,7 @@ export const ValuationRadarTab: React.FC<ValuationRadarTabProps> = ({ companies 
                     {c.ev_sales ? `${c.ev_sales}x` : c.arr_multiple ? `${c.arr_multiple}x (ARR)` : '—'}
                   </td>
                   <td className="py-3 font-semibold text-pink-400">
-                    {c.pe_ratio ? `${c.pe_ratio}x` : 'Private'}
+                    {c.type === 'public' ? (c.pe_ratio != null ? `${c.pe_ratio}x` : 'N/A') : 'Private'}
                   </td>
                   <td className="py-3 font-bold text-emerald-400">
                     {c.revenue_growth_yoy ? `+${c.revenue_growth_yoy}%` : 'N/A'}
@@ -205,7 +200,6 @@ export const ValuationRadarTab: React.FC<ValuationRadarTabProps> = ({ companies 
           </table>
         </div>
       </div>
-
     </div>
   );
 };
