@@ -47,8 +47,6 @@ export const LayerExplorerTab: React.FC<LayerExplorerTabProps> = ({
 
   return (
     <div className="space-y-8 animate-in fade-in duration-300">
-      
-      {/* Layer Navigation Selector Pills */}
       <div className="flex flex-wrap gap-2">
         {layers.map((l) => (
           <Link
@@ -67,7 +65,6 @@ export const LayerExplorerTab: React.FC<LayerExplorerTabProps> = ({
         ))}
       </div>
 
-      {/* Main Layer Dossier Header */}
       <div className="glass-card p-6 md:p-8 rounded-3xl border border-slate-800 space-y-4 relative overflow-hidden">
         <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 border-b border-slate-800/80 pb-4">
           <div>
@@ -92,7 +89,6 @@ export const LayerExplorerTab: React.FC<LayerExplorerTabProps> = ({
           </div>
         </div>
 
-        {/* Investment Thesis & Drivers */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-2">
           <div className="space-y-3">
             <h3 className="font-bold text-white text-sm flex items-center gap-2">
@@ -118,7 +114,6 @@ export const LayerExplorerTab: React.FC<LayerExplorerTabProps> = ({
           </div>
         </div>
 
-        {/* Critical Bottlenecks */}
         <div className="space-y-2 pt-2">
           <h3 className="font-bold text-rose-400 text-xs uppercase tracking-wider flex items-center gap-1.5 font-mono">
             <AlertTriangle className="w-3.5 h-3.5" /> Key Supply Chain & Execution Bottlenecks
@@ -133,10 +128,8 @@ export const LayerExplorerTab: React.FC<LayerExplorerTabProps> = ({
         </div>
       </div>
 
-      {/* Companies Mapped to this Layer */}
       <div className="space-y-4">
         <h3 className="text-lg font-bold text-white">Representative Assets & Valuation Profiles ({layerCompanies.length})</h3>
-        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {layerCompanies.map((comp) => (
             <div key={comp.id} className="glass-card p-5 rounded-2xl border border-slate-800 hover:border-slate-700 transition space-y-3">
@@ -175,13 +168,12 @@ export const LayerExplorerTab: React.FC<LayerExplorerTabProps> = ({
                 </div>
               </div>
 
-              {/* Valuation multiples summary */}
               <div className="grid grid-cols-3 gap-2 font-mono text-[11px] p-2.5 rounded-xl bg-slate-900/80 border border-slate-800/80">
                 {comp.type === 'public' ? (
                   <>
                     <div>
                       <span className="text-slate-400 block text-[9px] uppercase">P/E Ratio</span>
-                      <span className="font-bold text-white">{comp.pe_ratio}x</span>
+                      <span className="font-bold text-white">{comp.pe_ratio != null ? `${comp.pe_ratio}x` : 'N/A'}</span>
                     </div>
                     <div>
                       <span className="text-slate-400 block text-[9px] uppercase">EV / Sales</span>
@@ -210,7 +202,6 @@ export const LayerExplorerTab: React.FC<LayerExplorerTabProps> = ({
                 )}
               </div>
 
-              {/* Moat & Verdict */}
               <div className="text-xs space-y-1.5 pt-1">
                 <p className="text-slate-300"><strong>Moat:</strong> {comp.moat}</p>
                 <p className="text-rose-300/90"><strong>Risk:</strong> {comp.risk}</p>
@@ -222,7 +213,6 @@ export const LayerExplorerTab: React.FC<LayerExplorerTabProps> = ({
           ))}
         </div>
       </div>
-
     </div>
   );
 };
