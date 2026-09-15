@@ -48,6 +48,8 @@ export interface Company {
   moat: string;
   risk: string;
   investment_verdict: string;
+  as_of?: string;
+  source?: string;
 }
 
 export interface CapExFlow {
@@ -62,6 +64,8 @@ export interface CapExData {
   total_hyperscaler_capex_2025_billions: number;
   total_hyperscaler_capex_2026_billions: number;
   flows: CapExFlow[];
+  data_as_of?: string;
+  source?: string;
 }
 
 export interface Bottleneck {

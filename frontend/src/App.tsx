@@ -24,25 +24,25 @@ export const App: React.FC = () => {
   }, [location.pathname]);
 
   useEffect(() => {
-    // 1. Fetch 6 layers
+    // Fetch 5 layers
     fetch('/api/layers')
       .then((res) => res.json())
       .then((data) => setLayers(data.layers || []))
       .catch((e) => console.warn('Layers fetch error', e));
 
-    // 2. Fetch companies
+    // Fetch companies
     fetch('/api/companies')
       .then((res) => res.json())
       .then((data) => setCompanies(data.companies || []))
       .catch((e) => console.warn('Companies fetch error', e));
 
-    // 3. Fetch capex flows
+    // Fetch capex flows
     fetch('/api/capex-flows')
       .then((res) => res.json())
       .then((data) => setCapexData(data))
       .catch((e) => console.warn('CapEx fetch error', e));
 
-    // 4. Fetch bottlenecks
+    // Fetch bottlenecks
     fetch('/api/bottlenecks')
       .then((res) => res.json())
       .then((data) => setBottlenecks(data.bottlenecks || []))

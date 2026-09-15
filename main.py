@@ -24,11 +24,11 @@ tags_metadata = [
     },
     {
         "name": "Market Valuations & Comps",
-        "description": "Public equity valuation multiples (P/E, EV/Sales, Margins) and private unicorn venture funding benchmarks.",
+        "description": "Public equity valuation multiples (P/E, EV/Sales, Margins) and private unicorn venture funding benchmarks (static research snapshot).",
     },
     {
         "name": "CapEx Supercycle Flows",
-        "description": "Hyperscaler annual capital expenditure distribution ($330B+) and enterprise ROI analysis.",
+        "description": "Hyperscaler annual capital expenditure distribution (~$730B Big-4 2026E) and enterprise ROI analysis.",
     },
     {
         "name": "Supply Chain Bottlenecks",
@@ -47,27 +47,28 @@ tags_metadata = [
 app = FastAPI(
     title="AlphaAI API Reference",
     description="""
-# 🍰 AlphaAI · The 5-Layer Cake Framework for AI Investing
+# 🎂 AlphaAI · The 5-Layer Cake Framework for AI Investing
 
 Institutional market intelligence and investment decision platform tracking capital flows, valuation multiples, supply chain moats, and margin structures across NVIDIA's 5-Layer Cake model of the AI economy.
 
 ### NVIDIA's 5 Layers:
-1. **Layer 1: Energy & Grid Infrastructure** (`CEG`, `VST`, `TLN`, `VRT`, `ETN`, SMRs, Liquid CDUs)
-2. **Layer 2: Chips & Semiconductor Fabrication** (`NVDA`, `TSM`, `ASML`, `AVGO`, `MU`, CoWoS, HBM)
-3. **Layer 3: Cloud Infrastructure & AI Factories** (`MSFT`, `AMZN`, `GOOGL`, `ORCL`, `ANET`, CoreWeave, 800G Optics)
-4. **Layer 4: Foundation Models & Frontier Labs** (`OpenAI`, `Anthropic`, `Meta Llama`, `xAI`, `Scale AI`, Reasoning RLVR)
-5. **Layer 5: Applications & Agentic AI** (`PLTR`, `NOW`, `Cursor`, `Databricks`, `Devin`, `Harvey`)
+1. **Layer 1: Energy & Grid Infrastructure** (`CEG`, `VST`, `TLN`, `VRT`, `GEV`, `SBGSY`, SMRs, Liquid CDUs)
+2. **Layer 2: Chips & Semiconductor Fabrication** (`NVDA`, `TSM`, `ASML`, `AVGO`, `MU`, `AMD`, `AMAT`, `LRCX`, CoWoS, HBM)
+3. **Layer 3: Cloud Infrastructure & AI Factories** (`MSFT`, `AMZN`, `GOOGL`, `ORCL`, `ANET`, `CRWV`, `EQIX`, `COHR`, 800G Optics)
+4. **Layer 4: Foundation Models & Frontier Labs** (`OpenAI`, `Anthropic`, `META`, `xAI`, `Scale AI`, Reasoning RLVR)
+5. **Layer 5: Applications & Agentic AI** (`PLTR`, `NOW`, `CRM`, `SNOW`, `ADBE`, `Cursor`, `Databricks`)
     """,
-    version="1.1.0",
+    version="1.2.0",
     docs_url=None,
     redoc_url=None,
     openapi_tags=tags_metadata,
 )
 
+# Safe CORS: wildcard origins require credentials=False
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -76,9 +77,11 @@ ROOT = Path(__file__).parent
 DATA_DIR = ROOT / "data"
 
 LAYERS_DATA = json.loads((DATA_DIR / "layers.json").read_text())["layers"]
-COMPANIES_DATA = json.loads((DATA_DIR / "companies.json").read_text())["companies"]
+COMPANIES_PAYLOAD = json.loads((DATA_DIR / "companies.json").read_text())
+COMPANIES_DATA = COMPANIES_PAYLOAD["companies"]
 CAPEX_DATA = json.loads((DATA_DIR / "capex_flows.json").read_text())
 BOTTLENECKS_DATA = json.loads((DATA_DIR / "bottlenecks.json").read_text())["bottlenecks"]
+DATA_AS_OF = COMPANIES_PAYLOAD.get("data_as_of") or CAPEX_DATA.get("data_as_of") or "2026-09-15"
 
 
 # ============================================================================
@@ -102,7 +105,7 @@ def scalar_documentation():
 @app.get("/api/layers", tags=["5-Layer Cake Framework"], summary="Get All 5 Architectural Layers")
 def get_layers() -> JSONResponse:
     """Returns the full 5-Layer Cake framework definitions, investment theses, 2030 TAM projections, and margin profiles."""
-    return JSONResponse({"layers": LAYERS_DATA})
+    return JSONResponse({"layers": LAYERS_DATA, "data_as_of": DATA_AS_OF})
 
 
 @app.get("/api/companies", tags=["Market Valuations & Comps"], summary="List Public & Private AI Companies")
@@ -110,32 +113,35 @@ def get_companies(
     layer_id: int | None = Query(default=None, ge=1, le=5, description="Filter by layer ID (1 to 5)"),
     comp_type: str | None = Query(default=None, description="Filter by company type: 'public' or 'private'"),
 ) -> JSONResponse:
-    """Returns public equities (with live P/E, EV/Sales, gross margins) and private unicorns (with latest round valuations and ARR multiples)."""
+    """Returns public equities and private unicorns from a static research snapshot (as_of / source fields on each row). Multiples are not live market feeds."""
     comps = COMPANIES_DATA
     if layer_id is not None:
         comps = [c for c in comps if c["layer_id"] == layer_id]
     if comp_type is not None:
         comps = [c for c in comps if c["type"] == comp_type]
-    return JSONResponse({"companies": comps})
+    return JSONResponse({"companies": comps, "data_as_of": DATA_AS_OF})
 
 
 @app.get("/api/valuations", tags=["Market Valuations & Comps"], summary="Get Valuation Multiples & Comps Summary")
 def get_valuations() -> JSONResponse:
-    """Returns benchmark valuation multiples, cross-sectional statistics, and public/private multiple arbitrage metrics."""
+    """Returns benchmark valuation multiples, cross-sectional statistics, and public/private multiple arbitrage metrics from the static snapshot."""
     summary = get_valuation_summary()
+    summary["data_as_of"] = DATA_AS_OF
     return JSONResponse(summary)
 
 
-@app.get("/api/capex-flows", tags=["CapEx Supercycle Flows"], summary="Get $330B Hyperscaler CapEx Flows")
+@app.get("/api/capex-flows", tags=["CapEx Supercycle Flows"], summary="Get ~$730B Hyperscaler CapEx Flows")
 def get_capex_flows() -> JSONResponse:
-    """Returns the granular allocation of the $330B+ annual hyperscaler AI CapEx supercycle across the 5 layers."""
-    return JSONResponse(CAPEX_DATA)
+    """Returns the granular allocation of the ~$730B Big-4 2026E hyperscaler CapEx supercycle across the 5 layers (research snapshot)."""
+    payload = dict(CAPEX_DATA)
+    payload.setdefault("data_as_of", DATA_AS_OF)
+    return JSONResponse(payload)
 
 
 @app.get("/api/bottlenecks", tags=["Supply Chain Bottlenecks"], summary="Get Critical Hardware & Power Bottlenecks")
 def get_bottlenecks() -> JSONResponse:
     """Returns multi-year lead times (Transformers 36-42mo, CoWoS packaging, HBM4 yields) and beneficiary stock tickers."""
-    return JSONResponse({"bottlenecks": BOTTLENECKS_DATA})
+    return JSONResponse({"bottlenecks": BOTTLENECKS_DATA, "data_as_of": DATA_AS_OF})
 
 
 @app.get("/api/presets", tags=["Portfolio Allocator & Simulator"], summary="Get Institutional Strategy Presets")
@@ -154,7 +160,7 @@ def simulate_custom_portfolio(weights: PortfolioWeights) -> JSONResponse:
 @app.get("/healthz", tags=["System Health"], summary="Health Probe Endpoint")
 def healthz() -> dict[str, str]:
     """Health check probe returning service operational status."""
-    return {"status": "ok", "service": "alpha-ai-api"}
+    return {"status": "ok", "service": "alpha-ai-api", "data_as_of": DATA_AS_OF}
 
 
 # ============================================================================
