@@ -72,8 +72,8 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({ layers, onSelectTab, o
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 font-mono">
         <div className="glass-card glass-card-hover p-6 rounded-2xl border border-slate-800">
           <span className="text-xs text-slate-400 uppercase tracking-wider block mb-1">2026 Hyperscaler CapEx</span>
-          <p className="text-3xl font-extrabold text-white">$330 <span className="text-sm font-normal text-slate-400">Billion</span></p>
-          <p className="text-[11px] text-slate-400 mt-2">+24% YoY spend across Microsoft, Google, AWS, Meta.</p>
+          <p className="text-3xl font-extrabold text-white">$730 <span className="text-sm font-normal text-slate-400">Billion</span></p>
+          <p className="text-[11px] text-slate-400 mt-2">Big-4 2026E guidance midpoint (~$720–745B band); research snapshot.</p>
         </div>
 
         <div className="glass-card glass-card-hover p-6 rounded-2xl border border-slate-800">
@@ -125,7 +125,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({ layers, onSelectTab, o
                 <div>
                   <div className="flex flex-wrap items-center gap-2 mb-1">
                     <span className="text-xs font-mono font-bold text-slate-400 uppercase">Layer {layer.id}</span>
-                    <span className="text-xs font-bold text-white">&bull; {layer.name.split(':')[1]}</span>
+                    <span className="text-xs font-bold text-white">• {layer.name.split(':')[1]}</span>
                     <span className="text-[10px] font-mono px-2 py-0.2 rounded bg-slate-800 text-slate-300">
                       Moat: {layer.moat_rating}
                     </span>
