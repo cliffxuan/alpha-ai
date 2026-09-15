@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
 
         <div className="flex items-center space-x-6 text-[11px] font-mono">
           <span className="flex items-center gap-1.5 text-emerald-400">
-            <ShieldCheck className="w-3.5 h-3.5" /> SEC & Fundamental Comps Engine
+            <ShieldCheck className="w-3.5 h-3.5" /> Static Research Snapshot
           </span>
           <span>&bull;</span>
           <a href="/docs" target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:text-indigo-300 flex items-center gap-1">
