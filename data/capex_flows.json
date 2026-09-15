@@ -1,40 +1,42 @@
 {
-  "total_hyperscaler_capex_2025_billions": 265.0,
-  "total_hyperscaler_capex_2026_billions": 330.0,
+  "total_hyperscaler_capex_2025_billions": 410.0,
+  "total_hyperscaler_capex_2026_billions": 730.0,
+  "data_as_of": "2026-09-15",
+  "source": "Big-4 guidance midpoints post Q2 2026 (AMZN ~$220B, GOOGL $195\u2013205B, MSFT ~$175B, META $130\u2013145B)",
   "flows": [
     {
       "from": "Big Tech Hyperscalers (MSFT, GOOGL, AMZN, META)",
-      "to": "Layer 2: Chips & Semis (NVIDIA, TSMC, Broadcom)",
-      "amount_billions": 145.0,
+      "to": "Layer 2: Chips & Semis (NVIDIA, TSMC, Broadcom, HBM)",
+      "amount_billions": 321.0,
       "percentage": 44.0,
       "description": "GPU server boards, high-bandwidth memory (HBM3e/4), and custom ASIC tapeouts."
     },
     {
       "from": "Big Tech Hyperscalers (MSFT, GOOGL, AMZN, META)",
       "to": "Layer 1: Energy & Grid (Utilities, Nuclear PPAs, Vertiv Cooling)",
-      "amount_billions": 62.0,
+      "amount_billions": 137.0,
       "percentage": 18.8,
       "description": "Substation interconnects, long-term nuclear/gas power contracts, and liquid CDUs."
     },
     {
       "from": "Big Tech Hyperscalers (MSFT, GOOGL, AMZN, META)",
       "to": "Layer 3: Infrastructure & AI Factories (Arista, Neo-Clouds, Optics)",
-      "amount_billions": 58.0,
-      "percentage": 17.6,
+      "amount_billions": 128.0,
+      "percentage": 17.5,
       "description": "Hyperscale AI factory shells, substation transformers, and 800G/1.6T optical transceivers."
     },
     {
       "from": "Big Tech Hyperscalers (MSFT, GOOGL, AMZN, META)",
       "to": "Layer 4: Foundation Models (OpenAI, Anthropic, Scale AI)",
-      "amount_billions": 40.0,
+      "amount_billions": 88.0,
       "percentage": 12.1,
       "description": "Model training partnerships, equity investments, and frontier data curation contracts."
     },
     {
       "from": "Enterprise End-Users & Consumers",
       "to": "Layer 5: Applications & Agentic AI (Palantir, Cursor, ServiceNow, Databricks)",
-      "amount_billions": 25.0,
-      "percentage": 7.5,
+      "amount_billions": 56.0,
+      "percentage": 7.6,
       "description": "Software labor replacement, autonomous coding seat licenses, and enterprise agent workflows."
     }
   ]

@@ -7,7 +7,11 @@
       "lead_time": "36 - 42 Months",
       "severity": "Critical / Structural",
       "impact": "Data centers cannot connect new 100MW+ capacity to the grid without years-long advance transformer orders.",
-      "beneficiary_tickers": ["ETN (Eaton)", "SCHN (Schneider)", "GEV (GE Vernova)"]
+      "beneficiary_tickers": [
+        "ETN (Eaton)",
+        "SBGSY (Schneider)",
+        "GEV (GE Vernova)"
+      ]
     },
     {
       "id": "grid-interconnect-queue",
@@ -16,7 +20,11 @@
       "lead_time": "4.5 - 7.0 Years",
       "severity": "Extreme Bottleneck",
       "impact": "PJM, ERCOT, and CAISO transmission interconnect backlogs block greenfield data center builds.",
-      "beneficiary_tickers": ["CEG (Constellation Nuclear)", "VST (Vistra)", "TLN (Talen)"]
+      "beneficiary_tickers": [
+        "CEG (Constellation Nuclear)",
+        "VST (Vistra)",
+        "TLN (Talen)"
+      ]
     },
     {
       "id": "tsmc-cowos-capacity",
@@ -25,7 +33,11 @@
       "lead_time": "12 - 18 Months",
       "severity": "High / Easing by 2026",
       "impact": "Limits total worldwide volume production of NVIDIA B200, H200, and Google TPU dies.",
-      "beneficiary_tickers": ["TSM (TSMC)", "ASML", "AMKOR"]
+      "beneficiary_tickers": [
+        "TSM (TSMC)",
+        "ASML",
+        "AMKOR"
+      ]
     },
     {
       "id": "hbm-stacking-yield",
@@ -34,7 +46,11 @@
       "lead_time": "9 - 14 Months",
       "severity": "Critical Quality Gate",
       "impact": "Extreme 12-layer wafer stacking yields dictate GPU delivery schedules and memory pricing power.",
-      "beneficiary_tickers": ["SK Hynix", "MU (Micron)", "NVDA"]
+      "beneficiary_tickers": [
+        "SK Hynix (000660.KS)",
+        "MU (Micron)",
+        "NVDA"
+      ]
     },
     {
       "id": "800g-optical-transceivers",
@@ -43,7 +59,12 @@
       "lead_time": "6 - 10 Months",
       "severity": "Moderate Constraint",
       "impact": "Dense GPU clusters require 3x-5x more optical transceivers than traditional cloud servers.",
-      "beneficiary_tickers": ["COHR (Coherent)", "LITE (Lumentum)", "ANET (Arista)", "MRVL (Marvell)"]
+      "beneficiary_tickers": [
+        "COHR (Coherent)",
+        "LITE (Lumentum)",
+        "ANET (Arista)",
+        "MRVL (Marvell)"
+      ]
     },
     {
       "id": "reasoning-rlvr-compute",
@@ -52,7 +73,13 @@
       "lead_time": "Ongoing Paradigm Shift",
       "severity": "Economic Transformation",
       "impact": "Shifts compute spend from one-off pre-training to infinite test-time inference reasoning tokens and verified reward data pipelines.",
-      "beneficiary_tickers": ["OpenAI", "Anthropic", "Scale AI", "NVDA", "AVGO"]
+      "beneficiary_tickers": [
+        "OpenAI",
+        "Anthropic",
+        "Scale AI",
+        "NVDA",
+        "AVGO"
+      ]
     },
     {
       "id": "enterprise-agent-governance",
@@ -61,7 +88,11 @@
       "lead_time": "12 - 18 Months",
       "severity": "Enterprise Adoption Gate",
       "impact": "Strict SOC2, HIPAA, data lineage, and non-deterministic agent guardrails limit production rollout velocity of autonomous enterprise agents.",
-      "beneficiary_tickers": ["PLTR (Palantir AIP)", "NOW (ServiceNow)", "Databricks"]
+      "beneficiary_tickers": [
+        "PLTR (Palantir AIP)",
+        "NOW (ServiceNow)",
+        "Databricks"
+      ]
     }
   ]
 }
