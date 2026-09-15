@@ -21,16 +21,16 @@
     {
       "id": "tsmc-cowos-capacity",
       "name": "TSMC CoWoS Packaging Allocation",
-      "layer": "Layer 2: Silicon & Semis",
+      "layer": "Layer 2: Chips & Semis",
       "lead_time": "12 - 18 Months",
       "severity": "High / Easing by 2026",
-      "impact": "Limits total worldwide volume production of NVIDIA B200, H200, and Google TPU v5e/v6e dies.",
+      "impact": "Limits total worldwide volume production of NVIDIA B200, H200, and Google TPU dies.",
       "beneficiary_tickers": ["TSM (TSMC)", "ASML", "AMKOR"]
     },
     {
       "id": "hbm-stacking-yield",
       "name": "HBM3e / HBM4 High Bandwidth Memory",
-      "layer": "Layer 2: Silicon & Semis",
+      "layer": "Layer 2: Chips & Semis",
       "lead_time": "9 - 14 Months",
       "severity": "Critical Quality Gate",
       "impact": "Extreme 12-layer wafer stacking yields dictate GPU delivery schedules and memory pricing power.",
@@ -39,7 +39,7 @@
     {
       "id": "800g-optical-transceivers",
       "name": "800G / 1.6T Optical Transceivers & DSPs",
-      "layer": "Layer 3: Cloud & Network",
+      "layer": "Layer 3: Cloud & Infrastructure",
       "lead_time": "6 - 10 Months",
       "severity": "Moderate Constraint",
       "impact": "Dense GPU clusters require 3x-5x more optical transceivers than traditional cloud servers.",
@@ -47,12 +47,21 @@
     },
     {
       "id": "reasoning-rlvr-compute",
-      "name": "Test-Time Reasoning Compute Scaling",
+      "name": "Test-Time Reasoning Compute & RLHF Data",
       "layer": "Layer 4: Foundation Models",
       "lead_time": "Ongoing Paradigm Shift",
       "severity": "Economic Transformation",
-      "impact": "Shifts compute spend from one-off pre-training to infinite test-time inference reasoning tokens.",
-      "beneficiary_tickers": ["OpenAI", "Anthropic", "NVDA", "AVGO"]
+      "impact": "Shifts compute spend from one-off pre-training to infinite test-time inference reasoning tokens and verified reward data pipelines.",
+      "beneficiary_tickers": ["OpenAI", "Anthropic", "Scale AI", "NVDA", "AVGO"]
+    },
+    {
+      "id": "enterprise-agent-governance",
+      "name": "Enterprise Agent Governance & Hallucination Guardrails",
+      "layer": "Layer 5: Applications & Agents",
+      "lead_time": "12 - 18 Months",
+      "severity": "Enterprise Adoption Gate",
+      "impact": "Strict SOC2, HIPAA, data lineage, and non-deterministic agent guardrails limit production rollout velocity of autonomous enterprise agents.",
+      "beneficiary_tickers": ["PLTR (Palantir AIP)", "NOW (ServiceNow)", "Databricks"]
     }
   ]
 }

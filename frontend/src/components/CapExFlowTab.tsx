@@ -33,7 +33,7 @@ export const CapExFlowTab: React.FC<CapExFlowTabProps> = ({ capexData }) => {
         <h2 className="text-3xl font-extrabold text-white flex items-center gap-2">
           <TrendingUp className="w-8 h-8 text-indigo-400" /> The $330B Hyperscaler CapEx Supercycle
         </h2>
-        <p className="text-slate-400 text-sm mt-1">Simulating where Big Tech capital flows across the 6 layers and analyzing where sustainable ROI is realized</p>
+        <p className="text-slate-400 text-sm mt-1">Simulating where Big Tech capital flows across the 5 layers and analyzing where sustainable ROI is realized</p>
       </div>
 
       {/* Interactive CapEx Slider Box */}
@@ -82,10 +82,10 @@ export const CapExFlowTab: React.FC<CapExFlowTabProps> = ({ capexData }) => {
         <div className="lg:col-span-8 glass-card p-6 rounded-3xl border border-slate-800">
           <div className="flex justify-between items-center mb-4">
             <div>
-              <h3 className="font-bold text-white text-base">Capital Absorption Across the 6-Layer Cake ($B)</h3>
+              <h3 className="font-bold text-white text-base">Capital Absorption Across the 5-Layer Cake ($B)</h3>
               <p className="text-xs text-slate-400">Who collects the toll on hyperscaler AI spending?</p>
             </div>
-            <span className="text-xs font-mono text-purple-400 bg-purple-500/10 px-2 py-1 rounded border border-purple-500/20">Silicon = 44%</span>
+            <span className="text-xs font-mono text-purple-400 bg-purple-500/10 px-2 py-1 rounded border border-purple-500/20">Chips = 44%</span>
           </div>
 
           <div className="h-72 w-full">
@@ -107,7 +107,7 @@ export const CapExFlowTab: React.FC<CapExFlowTabProps> = ({ capexData }) => {
             <ShieldCheck className="w-5 h-5 text-indigo-400" /> The $600B AI ROI Question
           </h3>
           <p className="text-xs text-slate-300 leading-relaxed">
-            For Big Tech to justify $330B in annual CapEx, end-user software (Layer 6) must generate at least <strong>$600B in annual enterprise AI revenues</strong> at typical 50% gross margins.
+            For Big Tech to justify $330B in annual CapEx, end-user software (Layer 5) must generate at least <strong>$600B in annual enterprise AI revenues</strong> at typical 50% gross margins.
           </p>
           <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2 text-xs font-mono">
             <div className="flex justify-between">
@@ -124,7 +124,7 @@ export const CapExFlowTab: React.FC<CapExFlowTabProps> = ({ capexData }) => {
             </div>
           </div>
           <p className="text-[11px] text-slate-400">
-            Investors must monitor whether Layer 6 (Agentic software) can scale fast enough to prevent a CapEx deceleration in Layer 2 & 3.
+            Investors must monitor whether Layer 5 (Agentic software) can scale fast enough to prevent a CapEx deceleration in Layer 2 & 3.
           </p>
         </div>
       </div>

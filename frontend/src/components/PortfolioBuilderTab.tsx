@@ -6,10 +6,9 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, Legend } f
 export const PortfolioBuilderTab: React.FC = () => {
   const [layer1, setLayer1] = useState<number>(20);
   const [layer2, setLayer2] = useState<number>(30);
-  const [layer3, setLayer3] = useState<number>(15);
-  const [layer4, setLayer4] = useState<number>(10);
-  const [layer5, setLayer5] = useState<number>(10);
-  const [layer6, setLayer6] = useState<number>(15);
+  const [layer3, setLayer3] = useState<number>(20);
+  const [layer4, setLayer4] = useState<number>(15);
+  const [layer5, setLayer5] = useState<number>(15);
   const [capital, setCapital] = useState<number>(100000);
 
   const [simResult, setSimResult] = useState<PortfolioResult | null>(null);
@@ -21,11 +20,10 @@ export const PortfolioBuilderTab: React.FC = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           layer_1_energy: layer1,
-          layer_2_silicon: layer2,
-          layer_3_cloud: layer3,
+          layer_2_chips: layer2,
+          layer_3_infra: layer3,
           layer_4_models: layer4,
-          layer_5_tooling: layer5,
-          layer_6_apps: layer6,
+          layer_5_apps: layer5,
           total_capital_usd: capital,
         }),
       });
@@ -40,15 +38,14 @@ export const PortfolioBuilderTab: React.FC = () => {
 
   useEffect(() => {
     fetchSimulation();
-  }, [layer1, layer2, layer3, layer4, layer5, layer6, capital]);
+  }, [layer1, layer2, layer3, layer4, layer5, capital]);
 
   const applyPreset = (preset: PresetTemplate) => {
     setLayer1(preset.weights.layer_1_energy);
-    setLayer2(preset.weights.layer_2_silicon);
-    setLayer3(preset.weights.layer_3_cloud);
+    setLayer2(preset.weights.layer_2_chips);
+    setLayer3(preset.weights.layer_3_infra);
     setLayer4(preset.weights.layer_4_models);
-    setLayer5(preset.weights.layer_5_tooling);
-    setLayer6(preset.weights.layer_6_apps);
+    setLayer5(preset.weights.layer_5_apps);
   };
 
   const timelineData = simResult?.timeline || [];
@@ -58,9 +55,9 @@ export const PortfolioBuilderTab: React.FC = () => {
       
       <div>
         <h2 className="text-3xl font-extrabold text-white flex items-center gap-2">
-          <Calculator className="w-8 h-8 text-indigo-400" /> 6-Layer Portfolio Allocator & Thesis Simulator
+          <Calculator className="w-8 h-8 text-indigo-400" /> 5-Layer Portfolio Allocator & Thesis Simulator
         </h2>
-        <p className="text-slate-400 text-sm mt-1">Design customized institutional weighting across the 6 layers and model 5-year compounding returns</p>
+        <p className="text-slate-400 text-sm mt-1">Design customized institutional weighting across the 5 layers and model 5-year compounding returns</p>
       </div>
 
       {/* Preset Strategy Selector */}
@@ -112,7 +109,7 @@ export const PortfolioBuilderTab: React.FC = () => {
 
             <div>
               <div className="flex justify-between mb-1">
-                <span className="text-purple-400 font-bold">L2: Silicon & Semis</span>
+                <span className="text-purple-400 font-bold">L2: Chips & Semis</span>
                 <span className="text-white font-bold">{layer2}%</span>
               </div>
               <input
@@ -127,7 +124,7 @@ export const PortfolioBuilderTab: React.FC = () => {
 
             <div>
               <div className="flex justify-between mb-1">
-                <span className="text-blue-400 font-bold">L3: Cloud & Network</span>
+                <span className="text-blue-400 font-bold">L3: Cloud & Infrastructure</span>
                 <span className="text-white font-bold">{layer3}%</span>
               </div>
               <input
@@ -157,7 +154,7 @@ export const PortfolioBuilderTab: React.FC = () => {
 
             <div>
               <div className="flex justify-between mb-1">
-                <span className="text-emerald-400 font-bold">L5: Tooling & MLOps</span>
+                <span className="text-indigo-400 font-bold">L5: Applications & Agents</span>
                 <span className="text-white font-bold">{layer5}%</span>
               </div>
               <input
@@ -166,21 +163,6 @@ export const PortfolioBuilderTab: React.FC = () => {
                 max="100"
                 value={layer5}
                 onChange={(e) => setLayer5(Number(e.target.value))}
-                className="w-full h-2 bg-slate-800 rounded-lg cursor-pointer accent-emerald-500"
-              />
-            </div>
-
-            <div>
-              <div className="flex justify-between mb-1">
-                <span className="text-indigo-400 font-bold">L6: Vertical Apps & Agents</span>
-                <span className="text-white font-bold">{layer6}%</span>
-              </div>
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value={layer6}
-                onChange={(e) => setLayer6(Number(e.target.value))}
                 className="w-full h-2 bg-slate-800 rounded-lg cursor-pointer accent-indigo-500"
               />
             </div>

@@ -98,11 +98,10 @@ export interface PresetTemplate {
   description: string;
   weights: {
     layer_1_energy: number;
-    layer_2_silicon: number;
-    layer_3_cloud: number;
+    layer_2_chips: number;
+    layer_3_infra: number;
     layer_4_models: number;
-    layer_5_tooling: number;
-    layer_6_apps: number;
+    layer_5_apps: number;
   };
   target_profile: string;
 }

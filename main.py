@@ -19,8 +19,8 @@ logger = logging.getLogger("alpha-ai.api")
 
 tags_metadata = [
     {
-        "name": "6-Layer Cake Framework",
-        "description": "Core structural layers of the AI economy, from base energy physics to agentic software applications.",
+        "name": "5-Layer Cake Framework",
+        "description": "Core structural layers of the AI economy, aligning with NVIDIA's 5-Layer architecture (Energy -> Chips -> Infrastructure -> Models -> Applications).",
     },
     {
         "name": "Market Valuations & Comps",
@@ -47,19 +47,18 @@ tags_metadata = [
 app = FastAPI(
     title="AlphaAI API Reference",
     description="""
-# 🍰 AlphaAI · The 6-Layer Cake Framework for AI Investing
+# 🍰 AlphaAI · The 5-Layer Cake Framework for AI Investing
 
-Interactive institutional market intelligence and investment decision platform tracking capital flows, valuation multiples, supply chain moats, and margin structures across all 6 layers of the AI economy.
+Institutional market intelligence and investment decision platform tracking capital flows, valuation multiples, supply chain moats, and margin structures across NVIDIA's 5-Layer Cake model of the AI economy.
 
-### The 6 Layers:
+### NVIDIA's 5 Layers:
 1. **Layer 1: Energy & Grid Infrastructure** (`CEG`, `VST`, `TLN`, `VRT`, `ETN`, SMRs, Liquid CDUs)
-2. **Layer 2: Silicon & Semiconductor Fabrication** (`NVDA`, `TSM`, `ASML`, `AVGO`, `MU`, CoWoS, HBM)
-3. **Layer 3: Cloud Infrastructure & Networking** (`MSFT`, `AMZN`, `GOOGL`, `ORCL`, `ANET`, CoreWeave, 800G Optics)
-4. **Layer 4: Foundation Models & Frontier Labs** (`OpenAI`, `Anthropic`, `Meta Llama`, `xAI`, Reasoning RLVR)
-5. **Layer 5: Developer Tooling, Data Infrastructure & MLOps** (`Databricks`, `Scale AI`, `Pinecone`, `vLLM`)
-6. **Layer 6: Vertical Applications & Agentic AI** (`PLTR`, `NOW`, `Cursor`, `Devin`, `Harvey`)
+2. **Layer 2: Chips & Semiconductor Fabrication** (`NVDA`, `TSM`, `ASML`, `AVGO`, `MU`, CoWoS, HBM)
+3. **Layer 3: Cloud Infrastructure & AI Factories** (`MSFT`, `AMZN`, `GOOGL`, `ORCL`, `ANET`, CoreWeave, 800G Optics)
+4. **Layer 4: Foundation Models & Frontier Labs** (`OpenAI`, `Anthropic`, `Meta Llama`, `xAI`, `Scale AI`, Reasoning RLVR)
+5. **Layer 5: Applications & Agentic AI** (`PLTR`, `NOW`, `Cursor`, `Databricks`, `Devin`, `Harvey`)
     """,
-    version="1.0.0",
+    version="1.1.0",
     docs_url=None,
     redoc_url=None,
     openapi_tags=tags_metadata,
@@ -100,15 +99,15 @@ def scalar_documentation():
 # REST API Endpoints
 # ============================================================================
 
-@app.get("/api/layers", tags=["6-Layer Cake Framework"], summary="Get All 6 Architectural Layers")
+@app.get("/api/layers", tags=["5-Layer Cake Framework"], summary="Get All 5 Architectural Layers")
 def get_layers() -> JSONResponse:
-    """Returns the full 6-Layer Cake framework definitions, investment theses, 2030 TAM projections, and margin profiles."""
+    """Returns the full 5-Layer Cake framework definitions, investment theses, 2030 TAM projections, and margin profiles."""
     return JSONResponse({"layers": LAYERS_DATA})
 
 
 @app.get("/api/companies", tags=["Market Valuations & Comps"], summary="List Public & Private AI Companies")
 def get_companies(
-    layer_id: int | None = Query(default=None, ge=1, le=6, description="Filter by layer ID (1 to 6)"),
+    layer_id: int | None = Query(default=None, ge=1, le=5, description="Filter by layer ID (1 to 5)"),
     comp_type: str | None = Query(default=None, description="Filter by company type: 'public' or 'private'"),
 ) -> JSONResponse:
     """Returns public equities (with live P/E, EV/Sales, gross margins) and private unicorns (with latest round valuations and ARR multiples)."""
@@ -129,7 +128,7 @@ def get_valuations() -> JSONResponse:
 
 @app.get("/api/capex-flows", tags=["CapEx Supercycle Flows"], summary="Get $330B Hyperscaler CapEx Flows")
 def get_capex_flows() -> JSONResponse:
-    """Returns the granular allocation of the $330B+ annual hyperscaler AI CapEx supercycle across the 6 layers."""
+    """Returns the granular allocation of the $330B+ annual hyperscaler AI CapEx supercycle across the 5 layers."""
     return JSONResponse(CAPEX_DATA)
 
 
@@ -145,7 +144,7 @@ def get_presets() -> JSONResponse:
     return JSONResponse({"presets": PRESET_TEMPLATES})
 
 
-@app.post("/api/portfolio/simulate", tags=["Portfolio Allocator & Simulator"], summary="Simulate 6-Layer Portfolio Allocation")
+@app.post("/api/portfolio/simulate", tags=["Portfolio Allocator & Simulator"], summary="Simulate 5-Layer Portfolio Allocation")
 def simulate_custom_portfolio(weights: PortfolioWeights) -> JSONResponse:
     """Calculates weighted portfolio valuation multiples (EV/Sales, P/E, Margins), projected 3-Year CAGR, risk score, and models 5-year compounding returns (Base, Bull, Bear)."""
     result = simulate_portfolio(weights)

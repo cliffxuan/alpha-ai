@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
           </div>
           <div>
             <span className="font-extrabold text-sm text-white">ALPHA<span className="text-indigo-400">AI</span></span>
-            <p className="text-[10px] text-slate-500">The 6-Layer Cake Framework for AI Investment Intelligence</p>
+            <p className="text-[10px] text-slate-500">The 5-Layer Cake Framework for AI Investment Intelligence</p>
           </div>
         </div>
 

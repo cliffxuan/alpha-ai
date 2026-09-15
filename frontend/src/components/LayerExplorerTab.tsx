@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Layer, Company } from '../types';
-import { Zap, Cpu, Server, Brain, Wrench, AppWindow, CheckCircle2, AlertTriangle } from 'lucide-react';
+import { Zap, Cpu, Server, Brain, AppWindow, CheckCircle2, AlertTriangle } from 'lucide-react';
 
 interface LayerExplorerTabProps {
   layers: Layer[];
@@ -19,7 +19,7 @@ export const LayerExplorerTab: React.FC<LayerExplorerTabProps> = ({
   const { layerId } = useParams<{ layerId?: string }>();
 
   const parsedId = layerId ? parseInt(layerId, 10) : undefined;
-  const activeLayerId = (parsedId && !isNaN(parsedId) && parsedId >= 1 && parsedId <= 6)
+  const activeLayerId = (parsedId && !isNaN(parsedId) && parsedId >= 1 && parsedId <= 5)
     ? parsedId
     : (selectedLayerId || 1);
 
@@ -32,8 +32,7 @@ export const LayerExplorerTab: React.FC<LayerExplorerTabProps> = ({
       case 2: return <Cpu className="w-4 h-4 text-purple-400" />;
       case 3: return <Server className="w-4 h-4 text-blue-400" />;
       case 4: return <Brain className="w-4 h-4 text-pink-400" />;
-      case 5: return <Wrench className="w-4 h-4 text-emerald-400" />;
-      case 6: return <AppWindow className="w-4 h-4 text-indigo-400" />;
+      case 5: return <AppWindow className="w-4 h-4 text-indigo-400" />;
       default: return <Cpu className="w-4 h-4" />;
     }
   };

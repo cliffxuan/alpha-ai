@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 from typing import Any
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 
 ROOT = Path(__file__).parent.parent
 COMPANIES_DATA = json.loads((ROOT / "data" / "companies.json").read_text())["companies"]
@@ -12,12 +12,27 @@ LAYERS_DATA = json.loads((ROOT / "data" / "layers.json").read_text())["layers"]
 
 class PortfolioWeights(BaseModel):
     layer_1_energy: float = Field(default=20.0, ge=0.0, le=100.0)
-    layer_2_silicon: float = Field(default=30.0, ge=0.0, le=100.0)
-    layer_3_cloud: float = Field(default=15.0, ge=0.0, le=100.0)
-    layer_4_models: float = Field(default=10.0, ge=0.0, le=100.0)
-    layer_5_tooling: float = Field(default=10.0, ge=0.0, le=100.0)
-    layer_6_apps: float = Field(default=15.0, ge=0.0, le=100.0)
+    layer_2_chips: float = Field(default=30.0, ge=0.0, le=100.0)
+    layer_3_infra: float = Field(default=20.0, ge=0.0, le=100.0)
+    layer_4_models: float = Field(default=15.0, ge=0.0, le=100.0)
+    layer_5_apps: float = Field(default=15.0, ge=0.0, le=100.0)
     total_capital_usd: float = Field(default=100000.0, ge=1000.0)
+
+    @model_validator(mode="before")
+    @classmethod
+    def migrate_legacy_keys(cls, data: Any) -> Any:
+        if isinstance(data, dict):
+            # layer_2_silicon -> layer_2_chips
+            if "layer_2_chips" not in data and "layer_2_silicon" in data:
+                data["layer_2_chips"] = data["layer_2_silicon"]
+            # layer_3_cloud -> layer_3_infra
+            if "layer_3_infra" not in data and "layer_3_cloud" in data:
+                data["layer_3_infra"] = data["layer_3_cloud"]
+            # layer_5_apps fallback from legacy layer_6_apps + layer_5_tooling
+            if "layer_5_apps" not in data:
+                if "layer_6_apps" in data:
+                    data["layer_5_apps"] = data["layer_6_apps"] + data.get("layer_5_tooling", 0.0)
+        return data
 
 
 PRESET_TEMPLATES = [
@@ -27,11 +42,10 @@ PRESET_TEMPLATES = [
         "description": "Overweights the hardest physical constraints in AI (substation transformers, nuclear PPAs, liquid cooling) where pricing power is durable.",
         "weights": {
             "layer_1_energy": 45.0,
-            "layer_2_silicon": 30.0,
-            "layer_3_cloud": 15.0,
+            "layer_2_chips": 30.0,
+            "layer_3_infra": 15.0,
             "layer_4_models": 0.0,
-            "layer_5_tooling": 0.0,
-            "layer_6_apps": 10.0,
+            "layer_5_apps": 10.0,
         },
         "target_profile": "Lower multiple risk, strong dividend cash flows, structural supply bottleneck leverage."
     },
@@ -41,11 +55,10 @@ PRESET_TEMPLATES = [
         "description": "Concentrates capital in high gross margin (60-75%) semiconductor tollbooths (NVIDIA, TSMC, ASML, Broadcom).",
         "weights": {
             "layer_1_energy": 10.0,
-            "layer_2_silicon": 60.0,
-            "layer_3_cloud": 15.0,
-            "layer_4_models": 5.0,
-            "layer_5_tooling": 5.0,
-            "layer_6_apps": 5.0,
+            "layer_2_chips": 60.0,
+            "layer_3_infra": 15.0,
+            "layer_4_models": 10.0,
+            "layer_5_apps": 5.0,
         },
         "target_profile": "Highest operating margins, near-zero direct competitor substitution risk."
     },
@@ -55,25 +68,23 @@ PRESET_TEMPLATES = [
         "description": "Bets on end-user revenue capture, autonomous software engineering (Cursor, Devin), and enterprise workflow systems of record.",
         "weights": {
             "layer_1_energy": 5.0,
-            "layer_2_silicon": 10.0,
-            "layer_3_cloud": 10.0,
-            "layer_4_models": 15.0,
-            "layer_5_tooling": 20.0,
-            "layer_6_apps": 40.0,
+            "layer_2_chips": 10.0,
+            "layer_3_infra": 10.0,
+            "layer_4_models": 25.0,
+            "layer_5_apps": 50.0,
         },
         "target_profile": "Maximum revenue growth (40%+ CAGR), labor budget substitution, high LTV enterprise SaaS."
     },
     {
         "id": "balanced-all-weather",
-        "name": "Balanced 6-Layer All-Weather Core",
-        "description": "Diversified strategic weighting capturing the full AI value chain from kilowatt to application.",
+        "name": "Balanced 5-Layer All-Weather Core",
+        "description": "Diversified strategic weighting capturing NVIDIA's full 5-layer AI value chain from kilowatt to application.",
         "weights": {
-            "layer_1_energy": 16.67,
-            "layer_2_silicon": 25.0,
-            "layer_3_cloud": 18.33,
-            "layer_4_models": 10.0,
-            "layer_5_tooling": 10.0,
-            "layer_6_apps": 20.0,
+            "layer_1_energy": 20.0,
+            "layer_2_chips": 25.0,
+            "layer_3_infra": 20.0,
+            "layer_4_models": 15.0,
+            "layer_5_apps": 20.0,
         },
         "target_profile": "Optimal risk-adjusted Sharpe ratio across all market cycles."
     }
@@ -84,15 +95,14 @@ def simulate_portfolio(weights: PortfolioWeights) -> dict[str, Any]:
     # Normalize weights to 100%
     raw_weights = [
         weights.layer_1_energy,
-        weights.layer_2_silicon,
-        weights.layer_3_cloud,
+        weights.layer_2_chips,
+        weights.layer_3_infra,
         weights.layer_4_models,
-        weights.layer_5_tooling,
-        weights.layer_6_apps,
+        weights.layer_5_apps,
     ]
     total_raw = sum(raw_weights)
     if total_raw == 0:
-        norm_weights = [16.66] * 6
+        norm_weights = [20.0] * 5
     else:
         norm_weights = [(w / total_raw) * 100.0 for w in raw_weights]
 
@@ -100,9 +110,8 @@ def simulate_portfolio(weights: PortfolioWeights) -> dict[str, Any]:
         1: {"ev_sales": 4.5, "pe": 28.0, "gross_margin": 32.0, "cagr_3yr": 24.5, "risk_score": 3.2},
         2: {"ev_sales": 18.2, "pe": 34.0, "gross_margin": 68.5, "cagr_3yr": 31.0, "risk_score": 4.5},
         3: {"ev_sales": 14.5, "pe": 36.0, "gross_margin": 62.0, "cagr_3yr": 26.5, "risk_score": 4.0},
-        4: {"ev_sales": 32.0, "pe": 65.0, "gross_margin": 45.0, "cagr_3yr": 38.0, "risk_score": 8.2},
-        5: {"ev_sales": 18.0, "pe": 48.0, "gross_margin": 76.0, "cagr_3yr": 34.0, "risk_score": 6.0},
-        6: {"ev_sales": 22.5, "pe": 58.0, "gross_margin": 80.0, "cagr_3yr": 42.0, "risk_score": 6.8},
+        4: {"ev_sales": 32.0, "pe": 65.0, "gross_margin": 48.0, "cagr_3yr": 37.5, "risk_score": 8.0},
+        5: {"ev_sales": 22.5, "pe": 56.0, "gross_margin": 78.5, "cagr_3yr": 40.0, "risk_score": 6.5},
     }
 
     weighted_ev_sales = 0.0

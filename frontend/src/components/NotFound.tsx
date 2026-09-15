@@ -24,7 +24,7 @@ export const NotFound: React.FC = () => {
           to="/"
           className="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs shadow-lg shadow-indigo-600/30 transition flex items-center gap-2"
         >
-          <Home className="w-4 h-4" /> Return to 6-Layer Cake
+          <Home className="w-4 h-4" /> Return to 5-Layer Cake
         </Link>
         <button
           onClick={() => window.history.back()}

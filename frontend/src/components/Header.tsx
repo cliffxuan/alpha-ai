@@ -12,7 +12,7 @@ export const Header: React.FC<HeaderProps> = ({ onSelectTab }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems: { id: TabId; path: string; label: string; badge?: string }[] = [
-    { id: 'overview', path: '/', label: '6-Layer Cake' },
+    { id: 'overview', path: '/', label: '5-Layer Cake' },
     { id: 'layers', path: '/layers', label: 'Layer Dossiers' },
     { id: 'valuations', path: '/valuations', label: 'Valuation Radar', badge: 'Comps' },
     { id: 'capex', path: '/capex', label: '$330B CapEx Flows' },
@@ -43,7 +43,7 @@ export const Header: React.FC<HeaderProps> = ({ onSelectTab }) => {
               <div className="flex items-center space-x-1.5">
                 <span className="font-extrabold text-base text-white tracking-tight">ALPHA<span className="text-indigo-400">AI</span></span>
                 <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-indigo-500/20 text-indigo-300 font-semibold border border-indigo-500/30">
-                  6-Layer Cake
+                  5-Layer Cake
                 </span>
               </div>
               <p className="text-[9.5px] text-slate-400 tracking-wider uppercase font-medium">AI Investment Intelligence</p>

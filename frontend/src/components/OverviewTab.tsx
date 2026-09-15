@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Layer, TabId } from '../types';
-import { Zap, Cpu, Server, Brain, Wrench, AppWindow, ArrowRight, ShieldCheck, TrendingUp, DollarSign, Layers as LayersIcon } from 'lucide-react';
+import { Zap, Cpu, Server, Brain, AppWindow, ArrowRight, ShieldCheck, TrendingUp, DollarSign, Layers as LayersIcon } from 'lucide-react';
 
 interface OverviewTabProps {
   layers: Layer[];
@@ -16,8 +16,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({ layers, onSelectTab, o
       case 2: return <Cpu className="w-5 h-5 text-purple-400" />;
       case 3: return <Server className="w-5 h-5 text-blue-400" />;
       case 4: return <Brain className="w-5 h-5 text-pink-400" />;
-      case 5: return <Wrench className="w-5 h-5 text-emerald-400" />;
-      case 6: return <AppWindow className="w-5 h-5 text-indigo-400" />;
+      case 5: return <AppWindow className="w-5 h-5 text-indigo-400" />;
       default: return <Cpu className="w-5 h-5" />;
     }
   };
@@ -28,8 +27,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({ layers, onSelectTab, o
       case 2: return 'hover:border-purple-500/50';
       case 3: return 'hover:border-blue-500/50';
       case 4: return 'hover:border-pink-500/50';
-      case 5: return 'hover:border-emerald-500/50';
-      case 6: return 'hover:border-indigo-500/50';
+      case 5: return 'hover:border-indigo-500/50';
       default: return 'hover:border-slate-500/50';
     }
   };
@@ -42,14 +40,14 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({ layers, onSelectTab, o
         <div className="max-w-3xl space-y-6">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-mono">
             <ShieldCheck className="w-3.5 h-3.5" />
-            <span>Institutional AI Investment Framework</span>
+            <span>NVIDIA 5-Layer AI Architecture</span>
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-            The 6-Layer Cake <br className="hidden sm:inline" />
+            The 5-Layer Cake <br className="hidden sm:inline" />
             <span className="gradient-text">AI Investment Map</span>
           </h1>
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
-            Capital in the AI supercycle flows systematically from <strong>base physical constraints (Energy & Silicon)</strong> through <strong>Cloud Scale & Foundation Models</strong> up to <strong>Vertical Software & Agentic Automation</strong>. Identify where durable moats live and where commoditization risk destroys margin.
+            Capital in the AI supercycle flows systematically from <strong>base physical constraints (Energy & Chips)</strong> through <strong>AI Infrastructure & Foundation Models</strong> up to <strong>Vertical Applications & Agentic AI</strong>. Identify where durable moats live and where commoditization risk destroys margin.
           </p>
           <div className="flex flex-wrap gap-4 pt-2">
             <Link
@@ -57,7 +55,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({ layers, onSelectTab, o
               onClick={() => onSelectTab?.('portfolio')}
               className="px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-500 hover:to-pink-500 text-white font-bold text-sm shadow-lg shadow-indigo-500/25 transition flex items-center gap-2"
             >
-              <TrendingUp className="w-4 h-4" /> Simulate 6-Layer Portfolio
+              <TrendingUp className="w-4 h-4" /> Simulate 5-Layer Portfolio
             </Link>
             <Link
               to="/valuations"
@@ -79,7 +77,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({ layers, onSelectTab, o
         </div>
 
         <div className="glass-card glass-card-hover p-6 rounded-2xl border border-slate-800">
-          <span className="text-xs text-slate-400 uppercase tracking-wider block mb-1">Silicon Value Capture</span>
+          <span className="text-xs text-slate-400 uppercase tracking-wider block mb-1">Chips Value Capture</span>
           <p className="text-3xl font-extrabold text-purple-400">44.0% <span className="text-sm font-normal text-slate-400">of CapEx</span></p>
           <p className="text-[11px] text-slate-400 mt-2">Absorbed directly by NVIDIA, TSMC, Broadcom, and HBM.</p>
         </div>
@@ -91,18 +89,18 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({ layers, onSelectTab, o
         </div>
 
         <div className="glass-card glass-card-hover p-6 rounded-2xl border border-slate-800">
-          <span className="text-xs text-slate-400 uppercase tracking-wider block mb-1">Vertical App TAM (2030)</span>
-          <p className="text-3xl font-extrabold text-indigo-400">$550 <span className="text-sm font-normal text-slate-400">Billion</span></p>
+          <span className="text-xs text-slate-400 uppercase tracking-wider block mb-1">Applications TAM (2030)</span>
+          <p className="text-3xl font-extrabold text-indigo-400">$650 <span className="text-sm font-normal text-slate-400">Billion</span></p>
           <p className="text-[11px] text-slate-400 mt-2">Replacing high-cost human cognitive labor budgets.</p>
         </div>
       </div>
 
-      {/* The 6-Layer Cake Interactive Stack */}
+      {/* The 5-Layer Cake Interactive Stack */}
       <div className="space-y-4">
         <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
           <div>
             <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-              <LayersIcon className="w-6 h-6 text-indigo-400" /> The 6-Layer Cake Architecture
+              <LayersIcon className="w-6 h-6 text-indigo-400" /> The 5-Layer Cake Architecture
             </h2>
             <p className="text-slate-400 text-xs">Click any layer to inspect deep-dive investment dossiers, comps, and moat dynamics</p>
           </div>
