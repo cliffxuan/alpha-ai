@@ -372,7 +372,7 @@
       "gross_margin": 58.0,
       "capex_pct_revenue": 35.0,
       "moat": "GCP + TPU custom silicon + Search/YouTube distribution funding AI CapEx",
-      "risk": "CapEx guidance $195\u2013205B and first negative FCF quarter since IPO pressure multiples",
+      "risk": "CapEx guidance $195–205B and first negative FCF quarter since IPO pressure multiples",
       "investment_verdict": "Hyperscaler + Custom Silicon: Full-stack AI infra with owned TPU roadmap.",
       "type": "public",
       "as_of": "2026-09-15",
@@ -483,6 +483,26 @@
       "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
     },
     {
+      "id": "nebius",
+      "name": "Nebius Group",
+      "ticker": "NBIS",
+      "layer_id": 3,
+      "layer_name": "Cloud & Infrastructure",
+      "market_cap_billions": 58.0,
+      "stock_price": 207.0,
+      "ev_sales": 19.0,
+      "ev_ebitda": 40.0,
+      "revenue_growth_yoy": 454.0,
+      "gross_margin": 77.0,
+      "capex_pct_revenue": 700.0,
+      "moat": "European neo-cloud AI infra (ex-Yandex) with NVIDIA GPU clusters, $3B ARR, and multi-GW capacity ramp",
+      "risk": "Extreme CapEx intensity ($20–25B 2026 guidance), financing/dilution, and hyperscaler competition",
+      "investment_verdict": "Public Neo-Cloud Peer to CoreWeave: Nasdaq NBIS; high growth with heavy GPU CapEx burn.",
+      "type": "public",
+      "as_of": "2026-09-15",
+      "source": "Yahoo Finance / Nebius Q2 2026 results mid-Sep 2026"
+    },
+    {
       "id": "zai",
       "name": "Z.AI (Zhipu AI)",
       "ticker": "2513.HK",
@@ -538,7 +558,7 @@
       "revenue_growth_yoy": 22.0,
       "gross_margin": 81.0,
       "capex_pct_revenue": 25.0,
-      "moat": "Llama open-weight distribution + ads cash engine funding ~$130\u2013145B CapEx + Scale AI stake",
+      "moat": "Llama open-weight distribution + ads cash engine funding ~$130–145B CapEx + Scale AI stake",
       "risk": "CapEx intensity, open-weight monetization ambiguity, and regulatory ad-tech risk",
       "investment_verdict": "Open-Weight Hyperscaler: Funds frontier models from ads FCF while seeding the stack.",
       "type": "public",
@@ -702,7 +722,6 @@
       "id": "moonshot",
       "name": "Moonshot AI (Kimi)",
       "layer_id": 4,
-      "layer_name": "Foundation Models",
       "valuation_billions": 50.0,
       "latest_round": "Pre-IPO / growth rounds through 2026 (~$50B marks reported)",
       "lead_investors": [
@@ -726,9 +745,8 @@
       "id": "mistral",
       "name": "Mistral AI",
       "layer_id": 4,
-      "layer_name": "Foundation Models",
       "valuation_billions": 23.0,
-      "latest_round": "Series C/D (~\u20ac20B / ~$23B valuation marks, 2025/2026)",
+      "latest_round": "Series C/D (~€20B / ~$23B valuation marks, 2025/2026)",
       "lead_investors": [
         "Andreessen Horowitz",
         "Lightspeed",
@@ -750,9 +768,8 @@
       "id": "deepseek",
       "name": "DeepSeek AI",
       "layer_id": 4,
-      "layer_name": "Foundation Models",
       "valuation_billions": 75.0,
-      "latest_round": "High-Flyer spinout / secondary marks (~$74\u201375B discussed, 2026)",
+      "latest_round": "High-Flyer spinout / secondary marks (~$74–75B discussed, 2026)",
       "lead_investors": [
         "High-Flyer Quant",
         "Strategic Consortium"
@@ -771,7 +788,6 @@
       "id": "xai",
       "name": "xAI (Grok)",
       "layer_id": 4,
-      "layer_name": "Foundation Models",
       "valuation_billions": 250.0,
       "latest_round": "Acquired by SpaceX (Feb 2026) at ~$250B mark within $1.25T combined",
       "lead_investors": [
@@ -796,7 +812,6 @@
       "id": "scaleai",
       "name": "Scale AI",
       "layer_id": 4,
-      "layer_name": "Foundation Models",
       "valuation_billions": 29.0,
       "latest_round": "Meta ~$14.3B investment for ~49% (2025); company remains independent",
       "lead_investors": [
