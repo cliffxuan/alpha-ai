@@ -15,7 +15,7 @@ export const Header: React.FC<HeaderProps> = ({ onSelectTab }) => {
     { id: 'overview', path: '/', label: '5-Layer Cake' },
     { id: 'layers', path: '/layers', label: 'Layer Dossiers' },
     { id: 'valuations', path: '/valuations', label: 'Valuation Radar', badge: 'Comps' },
-    { id: 'capex', path: '/capex', label: '$330B CapEx Flows' },
+    { id: 'capex', path: '/capex', label: '~$730B CapEx Flows' },
     { id: 'bottlenecks', path: '/bottlenecks', label: 'Supply Moats' },
     { id: 'portfolio', path: '/portfolio', label: 'Portfolio Allocator', badge: 'Sim' },
   ];
