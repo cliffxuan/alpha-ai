@@ -33,11 +33,11 @@
       "description": "Model training partnerships, equity investments, and frontier data curation contracts."
     },
     {
-      "from": "Enterprise End-Users & Consumers",
+      "from": "Big Tech Hyperscalers (MSFT, GOOGL, AMZN, META)",
       "to": "Layer 5: Applications & Agentic AI (Palantir, Cursor, ServiceNow, Databricks)",
       "amount_billions": 56.0,
       "percentage": 7.6,
-      "description": "Software labor replacement, autonomous coding seat licenses, and enterprise agent workflows."
+      "description": "Hyperscaler CapEx flowing into Layer 5 apps and agent platforms via cloud marketplace partnerships, equity stakes, and API/credit programs."
     }
   ]
 }
