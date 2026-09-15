@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CapExData } from '../types';
 import { TrendingUp, ShieldCheck } from 'lucide-react';
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
@@ -8,7 +8,14 @@ interface CapExFlowTabProps {
 }
 
 export const CapExFlowTab: React.FC<CapExFlowTabProps> = ({ capexData }) => {
-  const [totalCapexBillions, setTotalCapexBillions] = useState<number>(330);
+  const snapshotTotal = capexData?.total_hyperscaler_capex_2026_billions ?? 730;
+  const [totalCapexBillions, setTotalCapexBillions] = useState<number>(730);
+
+  useEffect(() => {
+    if (capexData?.total_hyperscaler_capex_2026_billions) {
+      setTotalCapexBillions(capexData.total_hyperscaler_capex_2026_billions);
+    }
+  }, [capexData?.total_hyperscaler_capex_2026_billions]);
 
   const flows = capexData?.flows || [];
 
@@ -31,9 +38,11 @@ export const CapExFlowTab: React.FC<CapExFlowTabProps> = ({ capexData }) => {
       
       <div>
         <h2 className="text-3xl font-extrabold text-white flex items-center gap-2">
-          <TrendingUp className="w-8 h-8 text-indigo-400" /> The $330B Hyperscaler CapEx Supercycle
+          <TrendingUp className="w-8 h-8 text-indigo-400" /> The ~{snapshotTotal}B Hyperscaler CapEx Supercycle
         </h2>
-        <p className="text-slate-400 text-sm mt-1">Simulating where Big Tech capital flows across the 5 layers and analyzing where sustainable ROI is realized</p>
+        <p className="text-slate-400 text-sm mt-1">
+          Research snapshot of where Big Tech capital flows across the 5 layers (Big-4 2026E guidance band ~$720–745B)
+        </p>
       </div>
 
       {/* Interactive CapEx Slider Box */}
@@ -41,37 +50,37 @@ export const CapExFlowTab: React.FC<CapExFlowTabProps> = ({ capexData }) => {
         <div className="flex flex-col lg:flex-row justify-between lg:items-center gap-6">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span className="w-2.5 h-2.5 rounded-full bg-slate-400"></span>
               <span className="text-xs font-mono font-bold text-indigo-300 uppercase tracking-wider">
-                Hyperscaler Annual AI CapEx Spend
+                Hyperscaler Annual CapEx Snapshot (Big-4)
               </span>
             </div>
             <div className="text-4xl sm:text-5xl font-extrabold text-white font-mono tracking-tight">
               ${totalCapexBillions} <span className="text-lg font-normal text-slate-400">Billion / Year</span>
             </div>
             <p className="text-xs text-slate-400">
-              Aggregated AI capital expenditure across Microsoft, Alphabet, Amazon, and Meta Platforms.
+              Aggregated guided CapEx across Microsoft, Alphabet, Amazon, and Meta Platforms (static research snapshot — not a live feed).
             </p>
           </div>
 
           <div className="lg:w-80 p-5 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3">
             <div className="flex justify-between text-xs font-mono">
-              <span className="text-slate-400">CapEx Velocity:</span>
+              <span className="text-slate-400">CapEx Scenario:</span>
               <span className="text-indigo-400 font-bold">${totalCapexBillions}B / yr</span>
             </div>
             <input
               type="range"
-              min="150"
-              max="600"
+              min="200"
+              max="1200"
               step="10"
               value={totalCapexBillions}
               onChange={(e) => setTotalCapexBillions(Number(e.target.value))}
               className="w-full h-2 bg-slate-800 rounded-lg cursor-pointer accent-indigo-500"
             />
             <div className="flex justify-between text-[10px] text-slate-500 font-mono">
-              <span>$150B (2023)</span>
-              <span>$330B (2026E)</span>
-              <span>$600B (2028+)</span>
+              <span>$200B</span>
+              <span>{`$${snapshotTotal}B (2026E)`}</span>
+              <span>$1.2T</span>
             </div>
           </div>
         </div>
@@ -104,19 +113,19 @@ export const CapExFlowTab: React.FC<CapExFlowTabProps> = ({ capexData }) => {
         {/* ROI Dilemma Box */}
         <div className="lg:col-span-4 glass-card p-6 rounded-3xl border border-slate-800 space-y-4">
           <h3 className="font-bold text-white text-base flex items-center gap-2">
-            <ShieldCheck className="w-5 h-5 text-indigo-400" /> The $600B AI ROI Question
+            <ShieldCheck className="w-5 h-5 text-indigo-400" /> The AI ROI Question
           </h3>
           <p className="text-xs text-slate-300 leading-relaxed">
-            For Big Tech to justify $330B in annual CapEx, end-user software (Layer 5) must generate at least <strong>$600B in annual enterprise AI revenues</strong> at typical 50% gross margins.
+            For Big Tech to justify ~{snapshotTotal}B in annual CapEx, end-user software (Layer 5) must generate multi-hundred-billion dollars in enterprise AI revenues at typical software gross margins.
           </p>
           <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-2 text-xs font-mono">
             <div className="flex justify-between">
               <span className="text-slate-400">Current AI Software ARR:</span>
-              <span className="text-emerald-400 font-bold">~$25B</span>
+              <span className="text-emerald-400 font-bold">~$80B+</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-400">Required 2028 Run-Rate:</span>
-              <span className="text-cyan-400 font-bold">$600B</span>
+              <span className="text-slate-400">Required 2028+ Run-Rate:</span>
+              <span className="text-cyan-400 font-bold">$800B+</span>
             </div>
             <div className="flex justify-between">
               <span className="text-slate-400">Implied Labor Replacement:</span>
