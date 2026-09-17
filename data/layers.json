@@ -36,7 +36,7 @@
       "margin_profile": "60% - 75% Gross Margins (NVIDIA, TSMC, ASML)",
       "market_size_2030": "$380 Billion",
       "cagr": "31.0%",
-      "thesis": "The law of silicon economics: every frontier model requires exponential FLOP scaling. Leading-edge foundries (TSMC), extreme ultraviolet lithography (ASML), and high-bandwidth memory (SK Hynix, Micron) enjoy near-insurmountable technological moats that absorb the lion's share of Big Tech CapEx.",
+      "thesis": "The law of silicon economics: every frontier model requires exponential FLOP scaling. Leading-edge foundries (TSMC), extreme ultraviolet lithography (ASML), Electronic Design Automation (Cadence, Synopsys), and high-bandwidth memory (SK Hynix, Micron) enjoy near-insurmountable technological moats that absorb the lion's share of Big Tech CapEx.",
       "key_bottlenecks": [
         "Advanced packaging capacity: TSMC CoWoS (Chip-on-Wafer-on-Substrate) wafer allocations",
         "High Bandwidth Memory (HBM3e / HBM4) stacking yield and wafer supply",
@@ -45,6 +45,7 @@
       "value_capture_drivers": [
         "NVIDIA full-stack CUDA software moat & NVLink inter-GPU cluster fabric",
         "Custom ASIC acceleration (Broadcom co-design for Google TPU, AWS Trainium, Meta MTIA)",
+        "EDA software & silicon IP duopoly (Cadence, Synopsys) automating 2.5D/3D multi-die chiplet design and verification",
         "Silicon photonics and optical I/O replacing copper traces at high thermal density"
       ]
     },

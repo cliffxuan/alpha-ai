@@ -6,7 +6,7 @@ Comps and CapEx figures are a **static research snapshot** (not a live market da
 
 ## The 5 Layers (NVIDIA AI Architecture)
 1. **Layer 1: Energy & Grid Infrastructure** (CEG, VST, TLN, GEV, SBGSY, Vertiv, SMRs, Liquid Cooling)
-2. **Layer 2: Chips & Semiconductor Fabrication** (NVDA, TSMC, ASML, Broadcom, MU, AMD, AMAT, LRCX, HBM, CoWoS)
+2. **Layer 2: Chips & Semiconductor Fabrication** (NVDA, TSMC, ASML, Broadcom, MU, AMD, AMAT, LRCX, CDNS, HBM, CoWoS)
 3. **Layer 3: Cloud Infrastructure & AI Factories** (Azure, AWS, GCP, OCI, CoreWeave/CRWV, Arista 800G, Equinix, Coherent)
 4. **Layer 4: Foundation Models & Frontier Labs** (OpenAI, Anthropic, Meta Llama, xAI, Scale AI, RLVR)
 5. **Layer 5: Applications & Agentic AI** (Palantir, ServiceNow, Salesforce, Snowflake, Adobe, Cursor, Databricks)

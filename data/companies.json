@@ -190,6 +190,27 @@
       "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
     },
     {
+      "id": "cdns",
+      "name": "Cadence Design Systems",
+      "ticker": "CDNS",
+      "layer_id": 2,
+      "layer_name": "Chips & Semis",
+      "market_cap_billions": 76.5,
+      "stock_price": 279.50,
+      "pe_ratio": 54.8,
+      "ev_sales": 11.5,
+      "ev_ebitda": 34.5,
+      "revenue_growth_yoy": 21.0,
+      "gross_margin": 86.2,
+      "capex_pct_revenue": 2.8,
+      "moat": "EDA software & silicon IP duopoly (with Synopsys) + hardware emulation monopoly (Palladium Z3/Protium X3) + native AI chip design tools (Cerebrus, JedAI)",
+      "risk": "Customer concentration among top semiconductor designers, China export control license delays, and cyclical chip design pauses",
+      "investment_verdict": "Essential Silicon Architect: Non-negotiable software and IP tollbooth for every advanced GPU, custom hyperscaler ASIC, and 3D chiplet tapeout.",
+      "type": "public",
+      "as_of": "2026-09-17",
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+    },
+    {
       "id": "ceg",
       "name": "Constellation Energy",
       "ticker": "CEG",
