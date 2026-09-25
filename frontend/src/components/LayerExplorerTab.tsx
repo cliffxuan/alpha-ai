@@ -188,11 +188,11 @@ export const LayerExplorerTab: React.FC<LayerExplorerTabProps> = ({
                   <>
                     <div>
                       <span className="text-slate-400 block text-[9px] uppercase">Est. ARR</span>
-                      <span className="font-bold text-white">${comp.estimated_arr_millions}M</span>
+                      <span className="font-bold text-white">{comp.estimated_arr_millions != null ? `$${comp.estimated_arr_millions}M` : 'N/A'}</span>
                     </div>
                     <div>
                       <span className="text-slate-400 block text-[9px] uppercase">ARR Multiple</span>
-                      <span className="font-bold text-pink-400">{comp.arr_multiple}x</span>
+                      <span className="font-bold text-pink-400">{comp.arr_multiple != null ? `${comp.arr_multiple}x` : 'N/A'}</span>
                     </div>
                     <div>
                       <span className="text-slate-400 block text-[9px] uppercase">Latest Round</span>

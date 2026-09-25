@@ -55,7 +55,7 @@ Institutional market intelligence and investment decision platform tracking capi
 1. **Layer 1: Energy & Grid Infrastructure** (`CEG`, `VST`, `TLN`, `VRT`, `GEV`, `SBGSY`, SMRs, Liquid CDUs)
 2. **Layer 2: Chips & Semiconductor Fabrication** (`NVDA`, `TSM`, `ASML`, `AVGO`, `MU`, `AMD`, `AMAT`, `LRCX`, `CDNS`, CoWoS, HBM)
 3. **Layer 3: Cloud Infrastructure & AI Factories** (`MSFT`, `AMZN`, `GOOGL`, `ORCL`, `ANET`, `CRWV`, `EQIX`, `COHR`, 800G Optics)
-4. **Layer 4: Foundation Models & Frontier Labs** (`OpenAI`, `Anthropic`, `META`, `xAI`, `Scale AI`, Reasoning RLVR)
+4. **Layer 4: Foundation Models & Frontier Labs** (`OpenAI`, `Anthropic`, `META`, `xAI`, `Scale AI`, Reasoning RLVR, world models: `World Labs`, `AMI Labs`, `Runway`, `Decart`, `Odyssey`, `Wayve`)
 5. **Layer 5: Applications & Agentic AI** (`PLTR`, `NOW`, `CRM`, `SNOW`, `ADBE`, `Cursor`, `Databricks`)
     """,
     version="1.2.0",
