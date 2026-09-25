@@ -85,7 +85,7 @@
       "margin_profile": "Negative Net Margins (Heavy Training R&D) / Rapidly Scaling API Run-rates",
       "market_size_2030": "$240 Billion",
       "cagr": "37.5%",
-      "thesis": "Frontier labs create core reasoning and multimodal capabilities powered by massive pre-training clusters and specialized RLVR/RLHF data pipelines (Scale AI). The investment tension is between proprietary frontier models (OpenAI, Anthropic) capturing premium enterprise budgets vs open-weights models (Meta Llama, DeepSeek) commoditizing baseline completion.",
+      "thesis": "Frontier labs create core reasoning and multimodal capabilities powered by massive pre-training clusters and specialized RLVR/RLHF data pipelines (Scale AI). The investment tension is between proprietary frontier models (OpenAI, Anthropic) capturing premium enterprise budgets vs open-weights models (Meta Llama, DeepSeek) commoditizing baseline completion. A second race, world models, learns the physics of an environment instead of the statistics of text: spatial generators (World Labs, Runway), real-time simulators (Decart, Odyssey), JEPA research (AMI Labs), and embodied driving models (Wayve).",
       "key_bottlenecks": [
         "Pre-training compute cluster capital costs ($1B+ per next-gen model run)",
         "High-quality human and synthetic reasoning data exhaustion (Post-training RLVR)",
@@ -94,7 +94,8 @@
       "value_capture_drivers": [
         "Test-time compute scaling (System 2 thinking / RL with verifiable reward functions)",
         "High-quality post-training data curation and RLHF pipelines (Scale AI)",
-        "Enterprise private model weights hosting with zero data-retention guarantees"
+        "Enterprise private model weights hosting with zero data-retention guarantees",
+        "World models that simulate persistent 3D environments for robotics training, design, and interactive media (World Labs, Runway, Decart, Odyssey, AMI Labs, Wayve)"
       ]
     },
     {

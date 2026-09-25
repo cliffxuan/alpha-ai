@@ -899,6 +899,140 @@
       "ticker": "PRIVATE",
       "as_of": "2026-09-15",
       "source": "Press / funding announcements mid-2026"
+    },
+    {
+      "id": "worldlabs",
+      "name": "World Labs",
+      "layer_id": 4,
+      "layer_name": "Foundation Models",
+      "valuation_billions": 5.4,
+      "latest_round": "$1B round (Feb 2026) at a reported $5.4B post-money",
+      "lead_investors": [
+        "Autodesk",
+        "NVIDIA",
+        "AMD",
+        "Fidelity",
+        "Emerson Collective",
+        "Andreessen Horowitz"
+      ],
+      "moat": "Marble spatial world model and World API, with Autodesk as a distribution partner into 3D design workflows",
+      "risk": "Post-money mark was reported, not confirmed in the round announcement; revenue undisclosed; hyperscaler world models (Genie, Cosmos) can commoditize the base generator",
+      "investment_verdict": "Spatial Intelligence Anchor: Best-funded pure-play generative world-model lab; ~$5.4B reported post-money, total raised $1.23B.",
+      "type": "private",
+      "ticker": "PRIVATE",
+      "as_of": "2026-09-15",
+      "source": "TechCrunch 18 Feb 2026 ($1B round, Autodesk $200M); Forbes 30 Jun 2026 ($5.4B post-money, $1.23B total). ARR not disclosed."
+    },
+    {
+      "id": "amilabs",
+      "name": "AMI Labs",
+      "layer_id": 4,
+      "layer_name": "Foundation Models",
+      "valuation_billions": 4.53,
+      "latest_round": "Seed ($1.03B, Mar 2026) at $3.5B pre-money (~$4.53B post)",
+      "lead_investors": [
+        "Cathay Innovation",
+        "Greycroft",
+        "Hiro Capital",
+        "HV Capital",
+        "Bezos Expeditions",
+        "NVIDIA"
+      ],
+      "moat": "JEPA world-model research program chaired by Yann LeCun, with a bench hired out of Meta (Saining Xie, Pascale Fung, Michael Rabbat)",
+      "risk": "Pre-product research lab; the mark prices the thesis, not revenue; commercial applications are a multi-year path",
+      "investment_verdict": "World-Model Thesis Vehicle: Europe's largest seed. $4.53B is post-money on the disclosed $3.5B pre-money, not a revenue multiple.",
+      "type": "private",
+      "ticker": "PRIVATE",
+      "as_of": "2026-09-15",
+      "source": "TechCrunch 9 Mar 2026; PitchBook 10 Mar 2026. ARR not disclosed."
+    },
+    {
+      "id": "runway",
+      "name": "Runway",
+      "layer_id": 4,
+      "layer_name": "Foundation Models",
+      "valuation_billions": 5.3,
+      "latest_round": "Series E ($315M, Feb 2026); valuation reported at $5.3B",
+      "lead_investors": [
+        "General Atlantic",
+        "NVIDIA",
+        "Fidelity",
+        "Adobe Ventures",
+        "AMD Ventures"
+      ],
+      "moat": "Gen-4.5 video models plus the GWM-1 world-model family, already embedded in film and commercial production workflows",
+      "risk": "The $5.3B mark comes from people familiar with the deal, not the company blog; video generation is competitive with OpenAI, Google, and Luma",
+      "investment_verdict": "World Simulation Studio: $315M Series E to pre-train the next world models. Reported mark $5.3B.",
+      "type": "private",
+      "ticker": "PRIVATE",
+      "as_of": "2026-09-15",
+      "source": "Runway blog 10 Feb 2026 (round size and investors); TechCrunch and Bloomberg 10 Feb 2026 (reported $5.3B). ARR not disclosed in the round."
+    },
+    {
+      "id": "decart",
+      "name": "Decart",
+      "layer_id": 4,
+      "layer_name": "Foundation Models",
+      "valuation_billions": 4.0,
+      "latest_round": "Series B ($300M, May 2026) at nearly $4B",
+      "lead_investors": [
+        "Radical Ventures",
+        "NVIDIA",
+        "Sequoia Capital",
+        "Benchmark"
+      ],
+      "moat": "Real-time world models (Lucy, Oasis) on the Decart Optimization Stack, portable across NVIDIA, Trainium, and TPU",
+      "risk": "The company is also an inference-optimization vendor, so the pure world-model comp is mixed with chip-portability revenue; ARR not disclosed",
+      "investment_verdict": "Real-Time World Models: ~$4B mark. Oasis and Lucy sit on a hardware-portable inference stack. Total raised above $450M.",
+      "type": "private",
+      "ticker": "PRIVATE",
+      "as_of": "2026-09-15",
+      "source": "WSJ 18 May 2026 (nearly $4B; Radical Ventures lead, NVIDIA); Decart announcement same day ($300M, total above $450M)."
+    },
+    {
+      "id": "odyssey",
+      "name": "Odyssey",
+      "layer_id": 4,
+      "layer_name": "Foundation Models",
+      "valuation_billions": 1.45,
+      "latest_round": "Series B ($310M, Jun 2026) at $1.45B",
+      "lead_investors": [
+        "Natural Capital",
+        "Amazon",
+        "AMD Ventures",
+        "In-Q-Tel",
+        "GV"
+      ],
+      "moat": "Interactive world models from the Cruise/Wayve diaspora (Oliver Cameron, Jeff Hawke), with AWS Trainium capacity attached to the round",
+      "risk": "Earlier product stage than World Labs or Runway; interactive-world quality and distribution are still unproven at scale",
+      "investment_verdict": "Interactive World-Model Lab: $1.45B Series B. Self-driving alumni building simulatable environments, not a robotaxi fleet.",
+      "type": "private",
+      "ticker": "PRIVATE",
+      "as_of": "2026-09-15",
+      "source": "AI Business 22 Jun 2026; Forbes 30 Jun 2026. ARR not disclosed."
+    },
+    {
+      "id": "wayve",
+      "name": "Wayve",
+      "layer_id": 4,
+      "layer_name": "Foundation Models",
+      "valuation_billions": 8.6,
+      "latest_round": "Series D ($1.2B closed Feb 2026; up to $1.5B with Uber milestones) at $8.6B post-money",
+      "lead_investors": [
+        "Eclipse",
+        "Balderton Capital",
+        "SoftBank Vision Fund 2",
+        "Microsoft",
+        "NVIDIA",
+        "Uber"
+      ],
+      "moat": "End-to-end driving world model licensed to automakers (Mercedes-Benz, Nissan, Stellantis) rather than a city-by-city owned robotaxi fleet",
+      "risk": "Classified here for the world model, but the mark is an autonomy-software round; robotaxi launch execution in London and OEM integration can slip",
+      "investment_verdict": "Embodied World Model: $8.6B post-money on the Feb 2026 Series D. The asset is the driving model, sold as plug-in autonomy software.",
+      "type": "private",
+      "ticker": "PRIVATE",
+      "as_of": "2026-09-15",
+      "source": "Wayve press release 25 Feb 2026; Reuters and Financial Times same day. ARR not disclosed."
     }
   ],
   "data_as_of": "2026-09-15"
