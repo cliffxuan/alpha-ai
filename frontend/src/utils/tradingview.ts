@@ -25,46 +25,81 @@ const KNOWN_PRIVATE_COMPANIES = new Set([
   'NONE',
 ]);
 
+const CORPORATE_SUFFIXES = new Set([
+  'INC',
+  'INC.',
+  'CORP',
+  'CORP.',
+  'LTD',
+  'LTD.',
+  'LLC',
+  'LLC.',
+  'CO',
+  'CO.',
+  'SA',
+  'AG',
+  'GMBH',
+]);
+
 /**
- * Extracts a ticker symbol from strings like:
+ * Extracts a normalized uppercase ticker symbol from strings like:
  * "ETN (Eaton)" -> "ETN"
  * "SK Hynix (000660.KS)" -> "000660.KS"
  * "CEG" -> "CEG"
+ * "Acme (Inc.)" -> null
  * "OpenAI" -> null
  */
 export function extractTicker(rawTicker?: string | null): string | null {
   if (!rawTicker) return null;
   const clean = rawTicker.trim();
-  if (!clean || KNOWN_PRIVATE_COMPANIES.has(clean.toUpperCase())) {
+  const upper = clean.toUpperCase();
+  if (!clean || KNOWN_PRIVATE_COMPANIES.has(upper)) {
     return null;
   }
 
-  // Check parenthetical ticker e.g. "SK Hynix (000660.KS)"
+  // Check parenthetical ticker e.g. "SK Hynix (000660.KS)", "ETN (Eaton)"
   const parenMatch = clean.match(/\(([^)]+)\)/);
   if (parenMatch) {
     const inside = parenMatch[1].trim();
+    const insideUpper = inside.toUpperCase();
     const before = clean.split('(')[0].trim();
+    const beforeUpper = before.toUpperCase();
 
-    // If inside contains a dot or is an explicit exchange ticker (e.g. 000660.KS, 2513.HK)
-    if (inside.includes('.') || /^[0-9A-Z]+$/.test(inside)) {
-      if (!/^[A-Z0-9]+$/.test(before)) {
-        return inside;
-      }
+    // If inside matches an exchange-qualified ticker (e.g. 000660.KS, 2513.HK)
+    if (/^[A-Z0-9]{1,8}\.[A-Z]{2,4}$/.test(insideUpper)) {
+      return insideUpper;
     }
 
     // If before is an uppercase ticker like ETN in "ETN (Eaton)"
-    if (/^[A-Z0-9.]{1,12}$/i.test(before)) {
-      return before;
+    if (
+      before === beforeUpper &&
+      /^[A-Z0-9]{1,8}$/.test(beforeUpper) &&
+      !CORPORATE_SUFFIXES.has(beforeUpper) &&
+      !KNOWN_PRIVATE_COMPANIES.has(beforeUpper)
+    ) {
+      return beforeUpper;
     }
+
+    // If inside is an explicit uppercase ticker like (NVDA)
+    if (
+      inside === insideUpper &&
+      /^[A-Z0-9]{1,8}$/.test(insideUpper) &&
+      !CORPORATE_SUFFIXES.has(insideUpper) &&
+      !KNOWN_PRIVATE_COMPANIES.has(insideUpper)
+    ) {
+      return insideUpper;
+    }
+
+    return null;
   }
 
-  if (clean.toUpperCase() === 'AMKOR') {
+  if (upper === 'AMKOR') {
     return 'AMKR';
   }
 
-  // Single word / symbol
-  if (/^[A-Z0-9.]{1,12}$/i.test(clean)) {
-    return clean;
+  // Single word / symbol (e.g. "NVDA", "000660.KS")
+  if (/^[A-Z0-9]{1,8}(\.[A-Z]{2,4})?$/.test(upper) && !CORPORATE_SUFFIXES.has(upper)) {
+    return upper;
   }
 
   return null;
@@ -75,12 +110,17 @@ export function getTradingViewUrl(
   customUrl?: string | null,
   type?: string
 ): string | null {
-  if (customUrl && customUrl.trim()) {
-    return customUrl.trim();
-  }
-
+  // Check private company type and private ticker markers before honoring custom overrides
   if (type === 'private') {
     return null;
+  }
+
+  if (rawTicker && KNOWN_PRIVATE_COMPANIES.has(rawTicker.trim().toUpperCase())) {
+    return null;
+  }
+
+  if (customUrl && customUrl.trim()) {
+    return customUrl.trim();
   }
 
   if (!rawTicker) {
@@ -97,16 +137,18 @@ export function getTradingViewUrl(
     return null;
   }
 
+  const upperTicker = ticker.toUpperCase();
+
   // South Korea exchange: 000660.KS -> KRX-000660
-  if (ticker.endsWith('.KS')) {
-    return `https://www.tradingview.com/symbols/KRX-${ticker.slice(0, -3)}/`;
+  if (upperTicker.endsWith('.KS')) {
+    return `https://www.tradingview.com/symbols/KRX-${upperTicker.slice(0, -3)}/`;
   }
 
   // Hong Kong exchange: 2513.HK -> HKEX-2513, 0100.HK -> HKEX-100
-  if (ticker.endsWith('.HK')) {
-    const code = ticker.slice(0, -3).replace(/^0+/, '') || '0';
+  if (upperTicker.endsWith('.HK')) {
+    const code = upperTicker.slice(0, -3).replace(/^0+/, '') || '0';
     return `https://www.tradingview.com/symbols/HKEX-${code}/`;
   }
 
-  return `https://www.tradingview.com/symbols/${encodeURIComponent(ticker)}/`;
+  return `https://www.tradingview.com/symbols/${encodeURIComponent(upperTicker)}/`;
 }
