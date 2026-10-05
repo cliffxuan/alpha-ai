@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Bottleneck } from '../types';
-import { AlertOctagon, Clock } from 'lucide-react';
+import { AlertOctagon, Clock, ExternalLink } from 'lucide-react';
+import { TradingViewIcon } from './TradingViewIcon';
+import { getTradingViewUrl } from '../utils/tradingview';
 
 interface BottlenecksTabProps {
   bottlenecks: Bottleneck[];
@@ -53,11 +55,27 @@ export const BottlenecksTab: React.FC<BottlenecksTabProps> = ({ bottlenecks }) =
             <div className="pt-3 border-t border-slate-800/80">
               <span className="text-[10px] font-mono uppercase text-slate-400 block mb-1.5">Direct Equity Beneficiaries:</span>
               <div className="flex flex-wrap gap-1.5">
-                {btn.beneficiary_tickers.map((t, idx) => (
-                  <span key={idx} className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-                    {t}
-                  </span>
-                ))}
+                {btn.beneficiary_tickers.map((t, idx) => {
+                  const tvUrl = getTradingViewUrl(t);
+                  return tvUrl ? (
+                    <a
+                      key={idx}
+                      href={tvUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={`View ${t} on TradingView`}
+                      className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 hover:bg-indigo-500/30 hover:text-indigo-100 transition inline-flex items-center gap-1 group cursor-pointer"
+                    >
+                      <TradingViewIcon className="w-2.5 h-2.5 text-[#2962FF] group-hover:brightness-125" />
+                      <span>{t}</span>
+                      <ExternalLink className="w-2.5 h-2.5 opacity-60 group-hover:opacity-100" />
+                    </a>
+                  ) : (
+                    <span key={idx} className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                      {t}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           </div>

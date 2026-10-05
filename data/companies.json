@@ -19,7 +19,8 @@
       "investment_verdict": "Core Anchor: Indispensable compute tax collector for the entire AI supercycle.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/NVDA/"
     },
     {
       "id": "tsm",
@@ -40,7 +41,8 @@
       "investment_verdict": "Foundational Monopoly: Every frontier GPU and custom ASIC must flow through TSMC.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/TSM/"
     },
     {
       "id": "asml",
@@ -61,7 +63,8 @@
       "investment_verdict": "Deep Supply Chain Tollbooth: Physics-level monopoly with zero commercial competition.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/ASML/"
     },
     {
       "id": "avgo",
@@ -82,7 +85,8 @@
       "investment_verdict": "ASIC Winner: Direct hedge against NVIDIA GPU dominance with high software cash flow.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/AVGO/"
     },
     {
       "id": "mu",
@@ -103,7 +107,8 @@
       "investment_verdict": "Memory Supercycle Beneficiary: HBM scarcity converts into pricing power through 2026.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/MU/"
     },
     {
       "id": "skhynix",
@@ -124,7 +129,8 @@
       "investment_verdict": "HBM Share Leader: Primary memory supplier into NVIDIA GPU boards.",
       "source": "Yahoo Finance KR listing; USD market cap approx mid-Sep 2026",
       "type": "public",
-      "as_of": "2026-09-15"
+      "as_of": "2026-09-15",
+      "tradingview_url": "https://www.tradingview.com/symbols/KRX-000660/"
     },
     {
       "id": "amd",
@@ -145,7 +151,8 @@
       "investment_verdict": "Credible #2 GPU Challenger: Best public pure-play hedge to NVDA concentration.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/AMD/"
     },
     {
       "id": "amat",
@@ -166,7 +173,8 @@
       "investment_verdict": "WFE Diversified Play: Captures AI node transitions beyond EUV scanners.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/AMAT/"
     },
     {
       "id": "lrcx",
@@ -187,7 +195,8 @@
       "investment_verdict": "Process Tool Compounder: Etch intensity rises with HBM and gate-all-around nodes.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/LRCX/"
     },
     {
       "id": "cdns",
@@ -196,7 +205,7 @@
       "layer_id": 2,
       "layer_name": "Chips & Semis",
       "market_cap_billions": 76.5,
-      "stock_price": 279.50,
+      "stock_price": 279.5,
       "pe_ratio": 54.8,
       "ev_sales": 11.5,
       "ev_ebitda": 34.5,
@@ -208,7 +217,8 @@
       "investment_verdict": "Essential Silicon Architect: Non-negotiable software and IP tollbooth for every advanced GPU, custom hyperscaler ASIC, and 3D chiplet tapeout.",
       "type": "public",
       "as_of": "2026-09-17",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/CDNS/"
     },
     {
       "id": "ceg",
@@ -229,7 +239,8 @@
       "investment_verdict": "Top Nuclear Pick: Clean 24/7 baseload power is the ultimate physical constraint of AI.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/CEG/"
     },
     {
       "id": "vrt",
@@ -250,7 +261,8 @@
       "investment_verdict": "Thermal Pick & Shovel: High-density 100kW+ GPU racks cannot function without liquid cooling.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/VRT/"
     },
     {
       "id": "vst",
@@ -271,7 +283,8 @@
       "investment_verdict": "High Beta Power Play: Massive leverage to rising Texas wholesale electricity pricing.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/VST/"
     },
     {
       "id": "gev",
@@ -292,7 +305,8 @@
       "investment_verdict": "Grid Electrification Winner: Captures AI-driven T&D and generation CapEx.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/GEV/"
     },
     {
       "id": "tln",
@@ -313,7 +327,8 @@
       "investment_verdict": "Nuclear Co-Location Pure Play: Direct leverage to AI campus power demand.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/TLN/"
     },
     {
       "id": "schneider",
@@ -334,7 +349,8 @@
       "investment_verdict": "Electrification & DC Power Platform: Essential rack-to-grid electrical infrastructure.",
       "source": "Yahoo Finance SBGSY ADR mid-Sep 2026",
       "type": "public",
-      "as_of": "2026-09-15"
+      "as_of": "2026-09-15",
+      "tradingview_url": "https://www.tradingview.com/symbols/SBGSY/"
     },
     {
       "id": "msft",
@@ -355,7 +371,8 @@
       "investment_verdict": "Scale King: The most diversified commercial AI platform across enterprise, cloud, and consumer.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/MSFT/"
     },
     {
       "id": "anet",
@@ -376,7 +393,8 @@
       "investment_verdict": "Networking Champion: Standard Ethernet will dominate long-term hyperscaler AI scale-out. Note: 4-for-1 split Dec 2024 reflected in share price.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/ANET/"
     },
     {
       "id": "googl",
@@ -393,11 +411,12 @@
       "gross_margin": 58.0,
       "capex_pct_revenue": 35.0,
       "moat": "GCP + TPU custom silicon + Search/YouTube distribution funding AI CapEx",
-      "risk": "CapEx guidance $195–205B and first negative FCF quarter since IPO pressure multiples",
+      "risk": "CapEx guidance $195\u2013205B and first negative FCF quarter since IPO pressure multiples",
       "investment_verdict": "Hyperscaler + Custom Silicon: Full-stack AI infra with owned TPU roadmap.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/GOOGL/"
     },
     {
       "id": "amzn",
@@ -418,7 +437,8 @@
       "investment_verdict": "Largest CapEx Wallet: AWS remains the volume clearinghouse for AI cloud spend.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/AMZN/"
     },
     {
       "id": "orcl",
@@ -439,7 +459,8 @@
       "investment_verdict": "AI Cloud Upside Story: Converted database franchise into AI factory capacity.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/ORCL/"
     },
     {
       "id": "eqix",
@@ -460,7 +481,8 @@
       "investment_verdict": "Interconnection Tollbooth: Physical meeting point for cloud, networks, and enterprises.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/EQIX/"
     },
     {
       "id": "cohr",
@@ -481,7 +503,8 @@
       "investment_verdict": "Optics Pick & Shovel: Bandwidth per GPU rack drives transceiver demand.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/COHR/"
     },
     {
       "id": "coreweave",
@@ -501,7 +524,8 @@
       "investment_verdict": "Public Pure-Play AI Cloud: Nasdaq-listed neo-cloud; monitor FCF vs interest coverage.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/CRWV/"
     },
     {
       "id": "nebius",
@@ -517,11 +541,12 @@
       "gross_margin": 77.0,
       "capex_pct_revenue": 700.0,
       "moat": "European neo-cloud AI infra (ex-Yandex) with NVIDIA GPU clusters, $3B ARR, and multi-GW capacity ramp",
-      "risk": "Extreme CapEx intensity ($20–25B 2026 guidance), financing/dilution, and hyperscaler competition",
+      "risk": "Extreme CapEx intensity ($20\u201325B 2026 guidance), financing/dilution, and hyperscaler competition",
       "investment_verdict": "Public Neo-Cloud Peer to CoreWeave: Nasdaq NBIS; high growth with heavy GPU CapEx burn.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / Nebius Q2 2026 results mid-Sep 2026"
+      "source": "Yahoo Finance / Nebius Q2 2026 results mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/NBIS/"
     },
     {
       "id": "zai",
@@ -542,7 +567,8 @@
       "investment_verdict": "First Public Pure-Play LLM: HKEX (2513.HK) pricing anchor for standalone foundation model labs.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/HKEX-2513/"
     },
     {
       "id": "minimax",
@@ -563,7 +589,8 @@
       "investment_verdict": "Public Multimodal Champion: HKEX (0100.HK) consumer multimodal breakout.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/HKEX-100/"
     },
     {
       "id": "meta",
@@ -579,12 +606,13 @@
       "revenue_growth_yoy": 22.0,
       "gross_margin": 81.0,
       "capex_pct_revenue": 25.0,
-      "moat": "Llama open-weight distribution + ads cash engine funding ~$130–145B CapEx + Scale AI stake",
+      "moat": "Llama open-weight distribution + ads cash engine funding ~$130\u2013145B CapEx + Scale AI stake",
       "risk": "CapEx intensity, open-weight monetization ambiguity, and regulatory ad-tech risk",
       "investment_verdict": "Open-Weight Hyperscaler: Funds frontier models from ads FCF while seeding the stack.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/META/"
     },
     {
       "id": "pltr",
@@ -607,7 +635,8 @@
       "investment_verdict": "Enterprise Agent Monopoly: AIP ontology unlocks real enterprise ROI; long-term bull case still $1.0T.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/PLTR/"
     },
     {
       "id": "now",
@@ -628,7 +657,8 @@
       "investment_verdict": "High Quality SaaS Compounder: Best positioned to monetize agentic workflows. Note: 5-for-1 split reflected (~$142, not pre-split ~$920).",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/NOW/"
     },
     {
       "id": "crm",
@@ -649,7 +679,8 @@
       "investment_verdict": "Enterprise Agent Distribution: Installed base is the go-to-market for agentic CRM.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/CRM/"
     },
     {
       "id": "snow",
@@ -669,7 +700,8 @@
       "investment_verdict": "Data Cloud AI Upsell: Consumption model levered to enterprise AI workloads.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/SNOW/"
     },
     {
       "id": "adbe",
@@ -690,7 +722,8 @@
       "investment_verdict": "Creative AI Platform: Monetizes generative features inside sticky creative suites.",
       "type": "public",
       "as_of": "2026-09-15",
-      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026"
+      "source": "Yahoo Finance / public filings snapshot mid-Sep 2026",
+      "tradingview_url": "https://www.tradingview.com/symbols/ADBE/"
     },
     {
       "id": "openai",
@@ -767,7 +800,7 @@
       "name": "Mistral AI",
       "layer_id": 4,
       "valuation_billions": 23.0,
-      "latest_round": "Series C/D (~€20B / ~$23B valuation marks, 2025/2026)",
+      "latest_round": "Series C/D (~\u20ac20B / ~$23B valuation marks, 2025/2026)",
       "lead_investors": [
         "Andreessen Horowitz",
         "Lightspeed",
@@ -790,7 +823,7 @@
       "name": "DeepSeek AI",
       "layer_id": 4,
       "valuation_billions": 75.0,
-      "latest_round": "High-Flyer spinout / secondary marks (~$74–75B discussed, 2026)",
+      "latest_round": "High-Flyer spinout / secondary marks (~$74\u201375B discussed, 2026)",
       "lead_investors": [
         "High-Flyer Quant",
         "Strategic Consortium"

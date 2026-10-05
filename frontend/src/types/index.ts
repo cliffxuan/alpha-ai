@@ -50,6 +50,7 @@ export interface Company {
   investment_verdict: string;
   as_of?: string;
   source?: string;
+  tradingview_url?: string;
 }
 
 export interface CapExFlow {

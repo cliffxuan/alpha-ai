@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Layer, Company } from '../types';
-import { Zap, Cpu, Server, Brain, AppWindow, CheckCircle2, AlertTriangle } from 'lucide-react';
+import { Zap, Cpu, Server, Brain, AppWindow, CheckCircle2, AlertTriangle, ExternalLink } from 'lucide-react';
+import { TradingViewIcon } from './TradingViewIcon';
+import { getTradingViewUrl } from '../utils/tradingview';
 
 interface LayerExplorerTabProps {
   layers: Layer[];
@@ -131,22 +133,38 @@ export const LayerExplorerTab: React.FC<LayerExplorerTabProps> = ({
       <div className="space-y-4">
         <h3 className="text-lg font-bold text-white">Representative Assets & Valuation Profiles ({layerCompanies.length})</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {layerCompanies.map((comp) => (
-            <div key={comp.id} className="glass-card p-5 rounded-2xl border border-slate-800 hover:border-slate-700 transition space-y-3">
-              <div className="flex justify-between items-start">
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className="font-bold text-white text-base">{comp.name}</span>
-                    <span className="font-mono text-xs px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-bold">
-                      {comp.ticker}
-                    </span>
-                    <span className={`text-[10px] font-mono px-1.5 py-0.2 rounded uppercase font-bold ${
-                      comp.type === 'public' ? 'bg-emerald-500/20 text-emerald-300' : 'bg-purple-500/20 text-purple-300'
-                    }`}>
-                      {comp.type}
-                    </span>
+          {layerCompanies.map((comp) => {
+            const tvUrl = getTradingViewUrl(comp.ticker, comp.tradingview_url, comp.type);
+            return (
+              <div key={comp.id} className="glass-card p-5 rounded-2xl border border-slate-800 hover:border-slate-700 transition space-y-3">
+                <div className="flex justify-between items-start">
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="font-bold text-white text-base">{comp.name}</span>
+                      {tvUrl ? (
+                        <a
+                          href={tvUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title={`View ${comp.ticker} on TradingView`}
+                          className="inline-flex items-center gap-1.5 font-mono text-xs px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700/90 text-indigo-300 hover:text-indigo-100 border border-slate-700/80 hover:border-indigo-500/50 transition-all font-bold group cursor-pointer"
+                        >
+                          <TradingViewIcon className="w-3 h-3 text-[#2962FF] group-hover:brightness-125 transition-all" />
+                          <span>{comp.ticker}</span>
+                          <ExternalLink className="w-2.5 h-2.5 text-slate-400 group-hover:text-indigo-200 transition-colors" />
+                        </a>
+                      ) : (
+                        <span className="font-mono text-xs px-2 py-0.5 rounded bg-slate-800 text-indigo-300 font-bold">
+                          {comp.ticker}
+                        </span>
+                      )}
+                      <span className={`text-[10px] font-mono px-1.5 py-0.2 rounded uppercase font-bold ${
+                        comp.type === 'public' ? 'bg-emerald-500/20 text-emerald-300' : 'bg-purple-500/20 text-purple-300'
+                      }`}>
+                        {comp.type}
+                      </span>
+                    </div>
                   </div>
-                </div>
 
                 <div className="text-right font-mono">
                   {comp.type === 'public' ? (
@@ -210,7 +228,8 @@ export const LayerExplorerTab: React.FC<LayerExplorerTabProps> = ({
                 </div>
               </div>
             </div>
-          ))}
+          );
+        })}
         </div>
       </div>
     </div>
