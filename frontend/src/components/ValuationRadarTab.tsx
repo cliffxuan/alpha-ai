@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Company } from '../types';
-import { DollarSign, ArrowUpDown, Filter } from 'lucide-react';
+import { DollarSign, ArrowUpDown, Filter, ExternalLink } from 'lucide-react';
+import { getTradingViewUrl } from '../utils/tradingview';
 import { ResponsiveContainer, ScatterChart, Scatter, XAxis, YAxis, Tooltip, ZAxis, Cell } from 'recharts';
 
 interface ValuationRadarTabProps {
@@ -160,7 +161,27 @@ export const ValuationRadarTab: React.FC<ValuationRadarTabProps> = ({ companies 
                 <tr key={c.id} className="hover:bg-slate-800/30">
                   <td className="py-3">
                     <span className="font-bold text-white block">{c.name}</span>
-                    <span className="text-[10px] text-slate-400">{c.ticker} • {c.type}</span>
+                    <span className="text-[10px] text-slate-400 inline-flex items-center gap-1">
+                      {(() => {
+                        const tvUrl = getTradingViewUrl(c.ticker, c.tradingview_url, c.type);
+                        return tvUrl ? (
+                          <a
+                            href={tvUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title={`View ${c.ticker} on TradingView`}
+                            className="text-indigo-400 hover:text-indigo-200 hover:underline inline-flex items-center gap-0.5 font-mono font-medium"
+                          >
+                            <span>{c.ticker}</span>
+                            <ExternalLink className="w-2.5 h-2.5 opacity-70" />
+                          </a>
+                        ) : (
+                          <span className="font-mono">{c.ticker}</span>
+                        );
+                      })()}
+                      <span>•</span>
+                      <span>{c.type}</span>
+                    </span>
                   </td>
                   <td className="py-3 font-semibold">
                     <Link
